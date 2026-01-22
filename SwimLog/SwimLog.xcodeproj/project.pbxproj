@@ -6,6 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D15B145A2F227BD60031ADF7 /* SwimLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B144A2F227BD60031ADF7 /* SwimLogApp.swift */; };
+		D15B145B2F227BD60031ADF7 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B144E2F227BD60031ADF7 /* LogView.swift */; };
+		D15B145C2F227BD60031ADF7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14502F227BD60031ADF7 /* MainView.swift */; };
+		D15B145D2F227BD60031ADF7 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14532F227BD60031ADF7 /* MainTabView.swift */; };
+		D15B145E2F227BD60031ADF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14572F227BD60031ADF7 /* ContentView.swift */; };
+		D15B145F2F227BD60031ADF7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14582F227BD60031ADF7 /* Item.swift */; };
+		D15B14602F227BD60031ADF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D15B14562F227BD60031ADF7 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D15B141D2F226D890031ADF7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +37,16 @@
 		D15B140D2F226D880031ADF7 /* SwimLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwimLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15B141C2F226D890031ADF7 /* SwimLogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimLogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15B14262F226D890031ADF7 /* SwimLogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimLogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D15B144A2F227BD60031ADF7 /* SwimLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimLogApp.swift; sourceTree = "<group>"; };
+		D15B144E2F227BD60031ADF7 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		D15B14502F227BD60031ADF7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D15B14532F227BD60031ADF7 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		D15B14562F227BD60031ADF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D15B14572F227BD60031ADF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D15B14582F227BD60031ADF7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D15B140F2F226D880031ADF7 /* SwimLog */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SwimLog;
-			sourceTree = "<group>";
-		};
 		D15B141F2F226D890031ADF7 /* SwimLogTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SwimLogTests;
@@ -75,10 +87,10 @@
 		D15B14042F226D880031ADF7 = {
 			isa = PBXGroup;
 			children = (
-				D15B140F2F226D880031ADF7 /* SwimLog */,
+				D15B140E2F226D880031ADF7 /* Products */,
+				D15B14592F227BD60031ADF7 /* SwimLog */,
 				D15B141F2F226D890031ADF7 /* SwimLogTests */,
 				D15B14292F226D890031ADF7 /* SwimLogUITests */,
-				D15B140E2F226D880031ADF7 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +102,84 @@
 				D15B14262F226D890031ADF7 /* SwimLogUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D15B144B2F227BD60031ADF7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D15B144A2F227BD60031ADF7 /* SwimLogApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D15B144C2F227BD60031ADF7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		D15B144D2F227BD60031ADF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D15B144F2F227BD60031ADF7 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				D15B144E2F227BD60031ADF7 /* LogView.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		D15B14512F227BD60031ADF7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D15B14502F227BD60031ADF7 /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		D15B14522F227BD60031ADF7 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		D15B14542F227BD60031ADF7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D15B14532F227BD60031ADF7 /* MainTabView.swift */,
+				D15B14512F227BD60031ADF7 /* Main */,
+				D15B144F2F227BD60031ADF7 /* Log */,
+				D15B14522F227BD60031ADF7 /* Setting */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D15B14552F227BD60031ADF7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D15B14592F227BD60031ADF7 /* SwimLog */ = {
+			isa = PBXGroup;
+			children = (
+				D15B144B2F227BD60031ADF7 /* App */,
+				D15B144D2F227BD60031ADF7 /* Model */,
+				D15B14552F227BD60031ADF7 /* ViewModel */,
+				D15B14542F227BD60031ADF7 /* View */,
+				D15B144C2F227BD60031ADF7 /* Data */,
+				D15B14562F227BD60031ADF7 /* Assets.xcassets */,
+				D15B14572F227BD60031ADF7 /* ContentView.swift */,
+				D15B14582F227BD60031ADF7 /* Item.swift */,
+			);
+			path = SwimLog;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,9 +196,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				D15B140F2F226D880031ADF7 /* SwimLog */,
 			);
 			name = SwimLog;
 			packageProductDependencies = (
@@ -212,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D15B14602F227BD60031ADF7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +324,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D15B145A2F227BD60031ADF7 /* SwimLogApp.swift in Sources */,
+				D15B145B2F227BD60031ADF7 /* LogView.swift in Sources */,
+				D15B145C2F227BD60031ADF7 /* MainView.swift in Sources */,
+				D15B145D2F227BD60031ADF7 /* MainTabView.swift in Sources */,
+				D15B145E2F227BD60031ADF7 /* ContentView.swift in Sources */,
+				D15B145F2F227BD60031ADF7 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +499,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,12 +508,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jh.SwimLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -437,6 +534,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,12 +543,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jh.SwimLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
