@@ -13,13 +13,13 @@ struct MainTabView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            MainView()
+            PoolTrackerView()
                 .tabItem {
                     Label("Ocean", systemImage: "water.waves")
                 }
                 .tag(0)
             
-            LogView()
+            ActivityLogView()
                 .tabItem {
                     Label("Log", systemImage: "doc.text.magnifyingglass")
                 }

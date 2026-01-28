@@ -1,5 +1,5 @@
 //
-//  LogView.swift
+//  ActivityLogView.swift
 //  SwimLog
 //
 //  Created by JeongHwan Seok on 1/23/26.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LogView: View {
+struct ActivityLogView: View {
     var body: some View {
         NavigationStack {
             List(0..<5) { item in

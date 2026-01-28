@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  PoolTrackerView.swift
 //  SwimLog
 //
 //  Created by JeongHwan Seok on 1/23/26.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct PoolTrackerView: View {
     var body: some View {
         ZStack {
             // 배경: 화이트톤 미니멀 그라디언트

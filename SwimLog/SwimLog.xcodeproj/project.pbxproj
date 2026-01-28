@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D15B145A2F227BD60031ADF7 /* SwimLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B144A2F227BD60031ADF7 /* SwimLogApp.swift */; };
-		D15B145B2F227BD60031ADF7 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B144E2F227BD60031ADF7 /* LogView.swift */; };
-		D15B145C2F227BD60031ADF7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14502F227BD60031ADF7 /* MainView.swift */; };
+		D15B145B2F227BD60031ADF7 /* ActivityLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B144E2F227BD60031ADF7 /* ActivityLogView.swift */; };
+		D15B145C2F227BD60031ADF7 /* PoolTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14502F227BD60031ADF7 /* PoolTrackerView.swift */; };
 		D15B145D2F227BD60031ADF7 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14532F227BD60031ADF7 /* MainTabView.swift */; };
 		D15B145E2F227BD60031ADF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14572F227BD60031ADF7 /* ContentView.swift */; };
 		D15B145F2F227BD60031ADF7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14582F227BD60031ADF7 /* Item.swift */; };
 		D15B14602F227BD60031ADF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D15B14562F227BD60031ADF7 /* Assets.xcassets */; };
+		D15B147A2F2A56C80031ADF7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14792F2A56B90031ADF7 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,12 +39,13 @@
 		D15B141C2F226D890031ADF7 /* SwimLogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimLogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15B14262F226D890031ADF7 /* SwimLogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimLogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15B144A2F227BD60031ADF7 /* SwimLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimLogApp.swift; sourceTree = "<group>"; };
-		D15B144E2F227BD60031ADF7 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
-		D15B14502F227BD60031ADF7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D15B144E2F227BD60031ADF7 /* ActivityLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLogView.swift; sourceTree = "<group>"; };
+		D15B14502F227BD60031ADF7 /* PoolTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolTrackerView.swift; sourceTree = "<group>"; };
 		D15B14532F227BD60031ADF7 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		D15B14562F227BD60031ADF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D15B14572F227BD60031ADF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D15B14582F227BD60031ADF7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		D15B14792F2A56B90031ADF7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -108,78 +110,119 @@
 			isa = PBXGroup;
 			children = (
 				D15B144A2F227BD60031ADF7 /* SwimLogApp.swift */,
+				D15B14532F227BD60031ADF7 /* MainTabView.swift */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		D15B144C2F227BD60031ADF7 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		D15B144D2F227BD60031ADF7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D15B144F2F227BD60031ADF7 /* Log */ = {
-			isa = PBXGroup;
-			children = (
-				D15B144E2F227BD60031ADF7 /* LogView.swift */,
-			);
-			path = Log;
-			sourceTree = "<group>";
-		};
-		D15B14512F227BD60031ADF7 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				D15B14502F227BD60031ADF7 /* MainView.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		D15B14522F227BD60031ADF7 /* Setting */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Setting;
-			sourceTree = "<group>";
-		};
-		D15B14542F227BD60031ADF7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D15B14532F227BD60031ADF7 /* MainTabView.swift */,
-				D15B14512F227BD60031ADF7 /* Main */,
-				D15B144F2F227BD60031ADF7 /* Log */,
-				D15B14522F227BD60031ADF7 /* Setting */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		D15B14552F227BD60031ADF7 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D15B14592F227BD60031ADF7 /* SwimLog */ = {
 			isa = PBXGroup;
 			children = (
 				D15B144B2F227BD60031ADF7 /* App */,
-				D15B144D2F227BD60031ADF7 /* Model */,
-				D15B14552F227BD60031ADF7 /* ViewModel */,
-				D15B14542F227BD60031ADF7 /* View */,
-				D15B144C2F227BD60031ADF7 /* Data */,
+				D15B146D2F2A54440031ADF7 /* Features */,
+				D15B146E2F2A54D70031ADF7 /* Core */,
 				D15B14562F227BD60031ADF7 /* Assets.xcassets */,
 				D15B14572F227BD60031ADF7 /* ContentView.swift */,
 				D15B14582F227BD60031ADF7 /* Item.swift */,
 			);
 			path = SwimLog;
+			sourceTree = "<group>";
+		};
+		D15B146D2F2A54440031ADF7 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				D15B146F2F2A552D0031ADF7 /* PoolTracker */,
+				D15B14752F2A56420031ADF7 /* ActivityLog */,
+				D15B14762F2A566F0031ADF7 /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		D15B146E2F2A54D70031ADF7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D15B14732F2A55730031ADF7 /* Models */,
+				D15B14742F2A55770031ADF7 /* Services */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D15B146F2F2A552D0031ADF7 /* PoolTracker */ = {
+			isa = PBXGroup;
+			children = (
+				D15B14702F2A553F0031ADF7 /* Models */,
+				D15B14712F2A55440031ADF7 /* ViewModels */,
+				D15B14722F2A554A0031ADF7 /* Views */,
+			);
+			path = PoolTracker;
+			sourceTree = "<group>";
+		};
+		D15B14702F2A553F0031ADF7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D15B14712F2A55440031ADF7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D15B14722F2A554A0031ADF7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D15B14502F227BD60031ADF7 /* PoolTrackerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D15B14732F2A55730031ADF7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D15B14742F2A55770031ADF7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D15B14752F2A56420031ADF7 /* ActivityLog */ = {
+			isa = PBXGroup;
+			children = (
+				D15B14772F2A56890031ADF7 /* Views */,
+			);
+			path = ActivityLog;
+			sourceTree = "<group>";
+		};
+		D15B14762F2A566F0031ADF7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D15B14782F2A56B30031ADF7 /* Views */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D15B14772F2A56890031ADF7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D15B144E2F227BD60031ADF7 /* ActivityLogView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D15B14782F2A56B30031ADF7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D15B14792F2A56B90031ADF7 /* SettingsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,9 +367,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D15B147A2F2A56C80031ADF7 /* SettingsView.swift in Sources */,
 				D15B145A2F227BD60031ADF7 /* SwimLogApp.swift in Sources */,
-				D15B145B2F227BD60031ADF7 /* LogView.swift in Sources */,
-				D15B145C2F227BD60031ADF7 /* MainView.swift in Sources */,
+				D15B145B2F227BD60031ADF7 /* ActivityLogView.swift in Sources */,
+				D15B145C2F227BD60031ADF7 /* PoolTrackerView.swift in Sources */,
 				D15B145D2F227BD60031ADF7 /* MainTabView.swift in Sources */,
 				D15B145E2F227BD60031ADF7 /* ContentView.swift in Sources */,
 				D15B145F2F227BD60031ADF7 /* Item.swift in Sources */,
