@@ -15,6 +15,8 @@
 		D15B145F2F227BD60031ADF7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14582F227BD60031ADF7 /* Item.swift */; };
 		D15B14602F227BD60031ADF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D15B14562F227BD60031ADF7 /* Assets.xcassets */; };
 		D15B147A2F2A56C80031ADF7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14792F2A56B90031ADF7 /* SettingsView.swift */; };
+		D15B147C2F2A59BF0031ADF7 /* PoolLaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B147B2F2A59B40031ADF7 /* PoolLaneView.swift */; };
+		D15B147E2F2A59CB0031ADF7 /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B147D2F2A59C20031ADF7 /* GoalCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		D15B14572F227BD60031ADF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D15B14582F227BD60031ADF7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		D15B14792F2A56B90031ADF7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D15B147B2F2A59B40031ADF7 /* PoolLaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolLaneView.swift; sourceTree = "<group>"; };
+		D15B147D2F2A59C20031ADF7 /* GoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -174,6 +178,8 @@
 		D15B14722F2A554A0031ADF7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D15B147B2F2A59B40031ADF7 /* PoolLaneView.swift */,
+				D15B147D2F2A59C20031ADF7 /* GoalCardView.swift */,
 				D15B14502F227BD60031ADF7 /* PoolTrackerView.swift */,
 			);
 			path = Views;
@@ -369,7 +375,9 @@
 			files = (
 				D15B147A2F2A56C80031ADF7 /* SettingsView.swift in Sources */,
 				D15B145A2F227BD60031ADF7 /* SwimLogApp.swift in Sources */,
+				D15B147C2F2A59BF0031ADF7 /* PoolLaneView.swift in Sources */,
 				D15B145B2F227BD60031ADF7 /* ActivityLogView.swift in Sources */,
+				D15B147E2F2A59CB0031ADF7 /* GoalCardView.swift in Sources */,
 				D15B145C2F227BD60031ADF7 /* PoolTrackerView.swift in Sources */,
 				D15B145D2F227BD60031ADF7 /* MainTabView.swift in Sources */,
 				D15B145E2F227BD60031ADF7 /* ContentView.swift in Sources */,
