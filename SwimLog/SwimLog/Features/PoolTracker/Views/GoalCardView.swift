@@ -85,7 +85,7 @@ struct GoalCardView: View {
         .padding(24)
         .background(
             RoundedRectangle(cornerRadius: 30)
-                .fill(.ultraThinMaterial)
+                .fill(.thickMaterial)
                 .overlay(
                     RoundedRectangle(cornerRadius: 30)
                         .stroke(Color.white.opacity(0.5), lineWidth: 1)
