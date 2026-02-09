@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D107FE4C2F32311600EC9112 /* PoolTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107FE4B2F32310E00EC9112 /* PoolTrackerViewModel.swift */; };
 		D15B145A2F227BD60031ADF7 /* SwimLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B144A2F227BD60031ADF7 /* SwimLogApp.swift */; };
 		D15B145B2F227BD60031ADF7 /* ActivityLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B144E2F227BD60031ADF7 /* ActivityLogView.swift */; };
 		D15B145C2F227BD60031ADF7 /* PoolTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14502F227BD60031ADF7 /* PoolTrackerView.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D107FE4B2F32310E00EC9112 /* PoolTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolTrackerViewModel.swift; sourceTree = "<group>"; };
 		D15B140D2F226D880031ADF7 /* SwimLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwimLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15B141C2F226D890031ADF7 /* SwimLogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimLogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15B14262F226D890031ADF7 /* SwimLogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimLogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +173,7 @@
 		D15B14712F2A55440031ADF7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				D107FE4B2F32310E00EC9112 /* PoolTrackerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				D15B147A2F2A56C80031ADF7 /* SettingsView.swift in Sources */,
 				D15B145A2F227BD60031ADF7 /* SwimLogApp.swift in Sources */,
 				D15B147C2F2A59BF0031ADF7 /* PoolLaneView.swift in Sources */,
+				D107FE4C2F32311600EC9112 /* PoolTrackerViewModel.swift in Sources */,
 				D15B145B2F227BD60031ADF7 /* ActivityLogView.swift in Sources */,
 				D15B147E2F2A59CB0031ADF7 /* GoalCardView.swift in Sources */,
 				D15B145C2F227BD60031ADF7 /* PoolTrackerView.swift in Sources */,
