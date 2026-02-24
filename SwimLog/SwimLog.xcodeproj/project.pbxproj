@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D107FE4C2F32311600EC9112 /* PoolTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107FE4B2F32310E00EC9112 /* PoolTrackerViewModel.swift */; };
+		D107FE4E2F3E267100EC9112 /* SwimRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107FE4D2F3E266C00EC9112 /* SwimRecord.swift */; };
+		D107FE502F4C96A400EC9112 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107FE4F2F4C968500EC9112 /* HealthKitManager.swift */; };
 		D15B145A2F227BD60031ADF7 /* SwimLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B144A2F227BD60031ADF7 /* SwimLogApp.swift */; };
 		D15B145B2F227BD60031ADF7 /* ActivityLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B144E2F227BD60031ADF7 /* ActivityLogView.swift */; };
 		D15B145C2F227BD60031ADF7 /* PoolTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14502F227BD60031ADF7 /* PoolTrackerView.swift */; };
@@ -39,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		D107FE4B2F32310E00EC9112 /* PoolTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolTrackerViewModel.swift; sourceTree = "<group>"; };
+		D107FE4D2F3E266C00EC9112 /* SwimRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimRecord.swift; sourceTree = "<group>"; };
+		D107FE4F2F4C968500EC9112 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		D107FE512F4C98D300EC9112 /* SwimLog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwimLog.entitlements; sourceTree = "<group>"; };
 		D15B140D2F226D880031ADF7 /* SwimLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwimLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15B141C2F226D890031ADF7 /* SwimLogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimLogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15B14262F226D890031ADF7 /* SwimLogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimLogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +129,7 @@
 		D15B14592F227BD60031ADF7 /* SwimLog */ = {
 			isa = PBXGroup;
 			children = (
+				D107FE512F4C98D300EC9112 /* SwimLog.entitlements */,
 				D15B144B2F227BD60031ADF7 /* App */,
 				D15B146D2F2A54440031ADF7 /* Features */,
 				D15B146E2F2A54D70031ADF7 /* Core */,
@@ -166,6 +172,7 @@
 		D15B14702F2A553F0031ADF7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D107FE4D2F3E266C00EC9112 /* SwimRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,6 +205,7 @@
 		D15B14742F2A55770031ADF7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D107FE4F2F4C968500EC9112 /* HealthKitManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -376,7 +384,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D107FE4E2F3E267100EC9112 /* SwimRecord.swift in Sources */,
 				D15B147A2F2A56C80031ADF7 /* SettingsView.swift in Sources */,
+				D107FE502F4C96A400EC9112 /* HealthKitManager.swift in Sources */,
 				D15B145A2F227BD60031ADF7 /* SwimLogApp.swift in Sources */,
 				D15B147C2F2A59BF0031ADF7 /* PoolLaneView.swift in Sources */,
 				D107FE4C2F32311600EC9112 /* PoolTrackerViewModel.swift in Sources */,
@@ -545,11 +555,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwimLog/SwimLog.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UXDXLUL8VJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "수영 기록을 확인하여 목표 달성률을 계산하기 위해 건강 데이터가 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -580,11 +592,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwimLog/SwimLog.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UXDXLUL8VJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "수영 기록을 확인하여 목표 달성률을 계산하기 위해 건강 데이터가 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
