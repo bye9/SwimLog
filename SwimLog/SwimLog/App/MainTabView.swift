@@ -19,7 +19,7 @@ struct MainTabView: View {
                 }
                 .tag(0)
             
-            ActivityLogView()
+            SwimCalendarView()
                 .tabItem {
                     Label("Log", systemImage: "doc.text.magnifyingglass")
                 }
