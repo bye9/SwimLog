@@ -23,6 +23,7 @@
 		D1A456B42F5AE67700E8EE90 /* SwimCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456B32F5AE67600E8EE90 /* SwimCalendarViewModel.swift */; };
 		D1A456B72F5AE82900E8EE90 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456B62F5AE81A00E8EE90 /* Date+Extension.swift */; };
 		D1A456B92F5AEC9300E8EE90 /* CalendarGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456B82F5AEC8C00E8EE90 /* CalendarGrid.swift */; };
+		D1A456BB2F5B022900E8EE90 /* CalendarDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456BA2F5B022400E8EE90 /* CalendarDay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		D1A456B32F5AE67600E8EE90 /* SwimCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimCalendarViewModel.swift; sourceTree = "<group>"; };
 		D1A456B62F5AE81A00E8EE90 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		D1A456B82F5AEC8C00E8EE90 /* CalendarGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGrid.swift; sourceTree = "<group>"; };
+		D1A456BA2F5B022400E8EE90 /* CalendarDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -237,8 +239,9 @@
 		D15B14772F2A56890031ADF7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D1A456B82F5AEC8C00E8EE90 /* CalendarGrid.swift */,
 				D15B144E2F227BD60031ADF7 /* SwimCalendarView.swift */,
+				D1A456BA2F5B022400E8EE90 /* CalendarDay.swift */,
+				D1A456B82F5AEC8C00E8EE90 /* CalendarGrid.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				D107FE4E2F3E267100EC9112 /* SwimRecord.swift in Sources */,
 				D15B147A2F2A56C80031ADF7 /* SettingsView.swift in Sources */,
 				D1A456B92F5AEC9300E8EE90 /* CalendarGrid.swift in Sources */,
+				D1A456BB2F5B022900E8EE90 /* CalendarDay.swift in Sources */,
 				D107FE502F4C96A400EC9112 /* HealthKitManager.swift in Sources */,
 				D15B145A2F227BD60031ADF7 /* SwimLogApp.swift in Sources */,
 				D15B147C2F2A59BF0031ADF7 /* PoolLaneView.swift in Sources */,
@@ -586,7 +590,7 @@
 				CODE_SIGN_ENTITLEMENTS = SwimLog/SwimLog.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UXDXLUL8VJ;
+				DEVELOPMENT_TEAM = XZM3XQ6ZMC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "수영 기록을 확인하여 목표 달성률을 계산하기 위해 건강 데이터가 필요합니다.";
@@ -623,7 +627,7 @@
 				CODE_SIGN_ENTITLEMENTS = SwimLog/SwimLog.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UXDXLUL8VJ;
+				DEVELOPMENT_TEAM = XZM3XQ6ZMC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "수영 기록을 확인하여 목표 달성률을 계산하기 위해 건강 데이터가 필요합니다.";

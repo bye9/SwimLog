@@ -70,7 +70,7 @@ struct CalendarGridd: View {
             // 날짜 그리드
             LazyVGrid(columns: columns, spacing: 10) {
                 ForEach(1...31, id: \.self) { day in
-                    CalendarDay(
+                    CalendarDayy(
                         day: day,
                         isSwam: swimDays.contains(day),
                         isMilestone: milestones.contains(day),
@@ -85,7 +85,7 @@ struct CalendarGridd: View {
     }
 }
 // MARK: - Calendar Day Cell
-struct CalendarDay: View {
+struct CalendarDayy: View {
     let day: Int
     let isSwam: Bool
     let isMilestone: Bool
