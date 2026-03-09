@@ -9,23 +9,14 @@ import SwiftUI
 import Foundation
 
 struct CalendarGrid: View {
+    @ObservedObject var viewModel: SwimCalendarViewModel
+    
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
     let weekDays = ["일", "월", "화", "수", "목", "금", "토"]
     
-    let selectedMonth: Date
-    private let calendar = Calendar.current
-    
     var body: some View {
-        // 1일 전까지의 빈칸 수
-        let startOffset = selectedMonth.firstWeekdayOfMonth(using: calendar) - 1
-        
-        // 이번 달 총 일수
-        let numberOfDays = selectedMonth.numberOfDaysInMonth(using: calendar)
-        
-        // 전체 그리드 칸 수
-        let totalCells = startOffset + numberOfDays
-        
         VStack {
+            // 요일 헤더
             LazyVGrid(columns: columns) {
                 // 1. weekDays 배열을 돌면서
                 // 2. 각 문자열(day) 그 자체를 고유 식별자로 삼아서
@@ -37,27 +28,23 @@ struct CalendarGrid: View {
                 }
             }
             
+            // 날짜 그리드
             LazyVGrid(columns: columns) {
-                
-                ForEach(0..<totalCells, id: \.self) { index in
-                    if index < startOffset {
-                        Color.clear.frame(height: 50)
+                ForEach(viewModel.generateDays()) { dayModel in
+                    if let day = dayModel.day {
+                        CalendarDay(
+                            day: day,
+                            isToday: dayModel.isToday,
+                            status: dayModel.status)
                     } else {
-                        let day = index - startOffset + 1
-                        
-                        Color.blue.frame(height: 50)
+                        // 시작 전 빈칸 처리
+                        Color.clear.frame(height: 44)
                     }
                 }
-                
             }
         }
-
-        // 7. 7열 그리드에 날짜를 계산해서 뿌리자 (LazyVGrid + ForEach)
+        .padding()
         
     }
-}
-
-#Preview {
-    CalendarGrid(selectedMonth: Date())
 }
 

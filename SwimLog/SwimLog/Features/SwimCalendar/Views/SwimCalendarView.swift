@@ -17,7 +17,7 @@ struct SwimCalendarView: View {
                     Text("\(viewModel.selectedMonth, format: .dateTime.year().month())")
                         .font(.headline)
                     
-                    CalendarGrid(selectedMonth: viewModel.selectedMonth)
+                    CalendarGrid(viewModel: viewModel)
                 }
                 .padding()
             }

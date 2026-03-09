@@ -23,9 +23,15 @@ struct CalendarDay: View {
         ZStack {
             RoundedRectangle(cornerRadius: 12)
                 .fill(backgroundColor)
-                .frame(width: 44, height: 44)
+                .frame(maxWidth: .infinity) // 고정 폭 대신 유연하게
+                .aspectRatio(1.0, contentMode: .fit) // 정사각형 유지
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(isToday ? Color.blue : Color.clear, lineWidth: 2)
+                )
             
             Text("\(day)")
+                .font(.system(size: 16, weight: isToday ? .bold : .medium))
                 .foregroundStyle(textColor)
         }
         
