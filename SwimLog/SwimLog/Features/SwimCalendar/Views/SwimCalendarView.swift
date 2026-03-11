@@ -13,13 +13,24 @@ struct SwimCalendarView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 20) {
-                    Text("\(viewModel.selectedMonth, format: .dateTime.year().month())")
-                        .font(.headline)
+                VStack {
+                    HStack(spacing: 20) {
+                        Button(action: viewModel.moveToPreviousMonth) {
+                            Image(systemName: "chevron.left")
+                                .font(.title3.bold())
+                        }
+                        
+                        Text("\(viewModel.selectedMonth, format: .dateTime.year().month())")
+                            .font(.title2.bold())
+                        
+                        Button(action: viewModel.moveToNextMonth) {
+                            Image(systemName: "chevron.right")
+                                .font(.title3.bold())
+                        }
+                    }
                     
                     CalendarGrid(viewModel: viewModel)
-                }
-                .padding()
+                }.padding()
             }
             .navigationTitle("수영 기록")
             .background(Color(.systemGroupedBackground))

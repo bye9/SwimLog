@@ -17,18 +17,6 @@ class SwimCalendarViewModel: ObservableObject {
     // 이 뷰모델이 나중에 HealthKit 데이터를 가져와서
     // CalendarGrid에 전달하는 역할을 하게 됩니다.
     
-    struct DayModel: Identifiable {
-        let id = UUID()
-        let day: Int?
-        let isToday: Bool
-        let hasRecord: Bool
-        
-        // 뷰모델에서 뷰의 상태를 결정해서 넘겨준다.
-        var status: DayStatus {
-            hasRecord ? .recorded : .none
-        }
-    }
-    
     func generateDays() -> [DayModel] {
         // 1일 전까지의 빈칸 수
         let startOffset = selectedMonth.firstWeekdayOfMonth(using: calendar) - 1
@@ -42,7 +30,7 @@ class SwimCalendarViewModel: ObservableObject {
             days.append(DayModel(day: nil, isToday: false, hasRecord: false))
         }
         
-        let isCurrentMonth = checkSelectedMonthIsToday()
+        let isCurrentMonth = isShowingCurrentMonth()
         
         for day in 1...numberOfDays {
             let isToday = (day == todayComponents.day && isCurrentMonth)
@@ -55,9 +43,35 @@ class SwimCalendarViewModel: ObservableObject {
     }
     
     // 현재 보고 있는 달이 이번 달인지
-    private func checkSelectedMonthIsToday() -> Bool {
+    private func isShowingCurrentMonth() -> Bool {
         let selected = calendar.dateComponents([.year, .month], from: selectedMonth)
         return selected.year == todayComponents.year && selected.month == todayComponents.month
     }
     
+    // 달력 이동 로직
+    func moveToPreviousMonth() {
+        if let prevMonth = calendar.date(byAdding: .month, value: -1, to: selectedMonth) {
+            selectedMonth = prevMonth
+        }
+    }
+
+    func moveToNextMonth() {
+        if let nextMonth = calendar.date(byAdding: .month, value: 1, to: selectedMonth) {
+            selectedMonth = nextMonth
+        }
+    }
+}
+
+extension SwimCalendarViewModel {
+    struct DayModel: Identifiable {
+        let id = UUID()
+        let day: Int?
+        let isToday: Bool
+        let hasRecord: Bool
+        
+        // 뷰모델에서 뷰의 상태를 결정해서 넘겨준다.
+        var status: DayStatus {
+            hasRecord ? .recorded : .none
+        }
+    }
 }
