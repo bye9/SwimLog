@@ -22,10 +22,14 @@ struct SwimLogApp: App {
 //            fatalError("Could not create ModelContainer: \(error)")
 //        }
 //    }()
+    
+    @StateObject var poolTrackerViewModel = PoolTrackerViewModel()
 
     var body: some Scene {
         WindowGroup {
             MainTabView()
+                // 하위의 모든 뷰가 이 객체를 공유합니다.
+                .environmentObject(poolTrackerViewModel)
         }
 //        .modelContainer(sharedModelContainer)
     }

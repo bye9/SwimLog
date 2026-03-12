@@ -10,6 +10,7 @@ import Foundation
 
 struct CalendarGrid: View {
     @ObservedObject var viewModel: SwimCalendarViewModel
+    let allRecords: [SwimRecord]
     
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
     let weekDays = ["일", "월", "화", "수", "목", "금", "토"]
@@ -30,7 +31,7 @@ struct CalendarGrid: View {
             
             // 날짜 그리드
             LazyVGrid(columns: columns) {
-                ForEach(viewModel.generateDays()) { dayModel in
+                ForEach(viewModel.generateDays(allRecords: allRecords)) { dayModel in
                     if let day = dayModel.day {
                         CalendarDay(
                             day: day,

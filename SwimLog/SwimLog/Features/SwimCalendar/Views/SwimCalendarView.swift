@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SwimCalendarView: View {
+    @EnvironmentObject var poolTrackerViewModel: PoolTrackerViewModel
     @StateObject private var viewModel = SwimCalendarViewModel()
     
     var body: some View {
@@ -29,7 +30,7 @@ struct SwimCalendarView: View {
                         }
                     }
                     
-                    CalendarGrid(viewModel: viewModel)
+                    CalendarGrid(viewModel: viewModel, allRecords: poolTrackerViewModel.records)
                 }.padding()
             }
             .navigationTitle("수영 기록")
@@ -41,4 +42,7 @@ struct SwimCalendarView: View {
 
 #Preview {
     SwimCalendarView()
+    // 프리뷰를 위한 가짜 데이터를 넣은 VM을 주입합니다.
+        .environmentObject(PoolTrackerViewModel())
+    
 }

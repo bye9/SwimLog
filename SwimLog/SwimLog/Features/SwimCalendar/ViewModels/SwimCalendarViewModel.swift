@@ -17,7 +17,7 @@ class SwimCalendarViewModel: ObservableObject {
     // 이 뷰모델이 나중에 HealthKit 데이터를 가져와서
     // CalendarGrid에 전달하는 역할을 하게 됩니다.
     
-    func generateDays() -> [DayModel] {
+    func generateDays(allRecords: [SwimRecord]) -> [DayModel] {
         // 1일 전까지의 빈칸 수
         let startOffset = selectedMonth.firstWeekdayOfMonth(using: calendar) - 1
         
@@ -33,10 +33,15 @@ class SwimCalendarViewModel: ObservableObject {
         let isCurrentMonth = isShowingCurrentMonth()
         
         for day in 1...numberOfDays {
-            let isToday = (day == todayComponents.day && isCurrentMonth)
-            // ✅ 지금은 테스트를 위해 5의 배수 날짜에만 기록이 있다고 가정해볼게요.
-            let dummyRecord = day % 5 == 0
-            days.append(DayModel(day: day, isToday: isToday, hasRecord: dummyRecord))
+            let hasRecord = allRecords.contains { record in
+                calendar.isDate(record.date, inSameDayAs: calendar.date(byAdding: .day, value: (day - 1), to: selectedMonth.startOfMonth(using: calendar))!)
+            }
+            days.append(DayModel(day: day, isToday: (day == todayComponents.day && isCurrentMonth), hasRecord: hasRecord))
+            
+//            let isToday = (day == todayComponents.day && isCurrentMonth)
+//            // ✅ 지금은 테스트를 위해 5의 배수 날짜에만 기록이 있다고 가정해볼게요.
+//            let dummyRecord = day % 5 == 0
+//            days.append(DayModel(day: day, isToday: isToday, hasRecord: dummyRecord))
         }
         
         return days
