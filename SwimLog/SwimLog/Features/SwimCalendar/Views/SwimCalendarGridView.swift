@@ -1,5 +1,5 @@
 //
-//  CalendarGrid.swift
+//  SwimCalendarGridView.swift
 //  SwimLog
 //
 //  Created by JeongHwan Seok on 3/6/26.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Foundation
 
-struct CalendarGrid: View {
+struct SwimCalendarGridView: View {
     @ObservedObject var viewModel: SwimCalendarViewModel
     let allRecords: [SwimRecord]
     
@@ -33,7 +33,7 @@ struct CalendarGrid: View {
             LazyVGrid(columns: columns) {
                 ForEach(viewModel.generateDays(allRecords: allRecords)) { dayModel in
                     if let day = dayModel.day {
-                        CalendarDay(
+                        SwimCalendarDayCell(
                             day: day,
                             isToday: dayModel.isToday,
                             status: dayModel.status)
@@ -44,8 +44,15 @@ struct CalendarGrid: View {
                 }
             }
         }
-        .padding()
+        .frame(maxWidth: .infinity)
+        .padding(.all, 20)
+        .background(Color.white)
+        .cornerRadius(24)
+        .shadow(color: Color.black.opacity(0.03), radius: 10, x: 0, y: 5)
         
     }
 }
 
+#Preview {
+    SwimCalendarGridView(viewModel: SwimCalendarViewModel(), allRecords: [SwimRecord]())
+}

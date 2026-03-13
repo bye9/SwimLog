@@ -1,5 +1,5 @@
 //
-//  CalendarDay.swift
+//  SwimCalendarDayCell.swift
 //  SwimLog
 //
 //  Created by JeongHwan Seok on 3/6/26.
@@ -14,7 +14,7 @@ enum DayStatus {
 //    case milestone  // 특별한 달성 기록
 }
 
-struct CalendarDay: View {
+struct SwimCalendarDayCell: View {
     let day: Int
     let isToday: Bool
     let status: DayStatus
@@ -53,5 +53,5 @@ struct CalendarDay: View {
 }
 
 #Preview {
-    CalendarDay(day: 5, isToday: true, status: .recorded)
+    SwimCalendarDayCell(day: 5, isToday: true, status: .recorded)
 }

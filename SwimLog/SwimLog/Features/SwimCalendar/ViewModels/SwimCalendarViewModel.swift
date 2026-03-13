@@ -17,6 +17,19 @@ class SwimCalendarViewModel: ObservableObject {
     // 이 뷰모델이 나중에 HealthKit 데이터를 가져와서
     // CalendarGrid에 전달하는 역할을 하게 됩니다.
     
+    // 이번 달에 해당하는 기록들만 필터링
+    func currentMonthRecords(allRecords: [SwimRecord]) -> [SwimRecord] {
+        allRecords.filter { record in
+            calendar.isDate(record.date, equalTo: selectedMonth, toGranularity: .month)
+        }
+    }
+    
+    // 총 수영 거리 계산 (km 단위)
+    func totalDistance(allRecords: [SwimRecord]) -> Double {
+        let meters = currentMonthRecords(allRecords: allRecords).reduce(0) { $0 + $1.distance }
+        return meters / 1000.0
+    }
+    
     func generateDays(allRecords: [SwimRecord]) -> [DayModel] {
         // 1일 전까지의 빈칸 수
         let startOffset = selectedMonth.firstWeekdayOfMonth(using: calendar) - 1

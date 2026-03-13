@@ -23,6 +23,16 @@ class PoolTrackerViewModel: ObservableObject {
         $records
             .map { $0.reduce(0) { $0 + $1.distance } }
             .assign(to: &$currentDistance)
+        
+        // 2. 테스트용 가짜 데이터 주입 (아까 드린 코드)
+            let calendar = Calendar.current
+            let now = Date()
+            
+            self.records = [
+                SwimRecord(id: UUID(), date: now, distance: 1500, duration: 3000, isAppleWatchData: true),
+                SwimRecord(id: UUID(), date: calendar.date(byAdding: .day, value: -3, to: now)!, distance: 2000, duration: 4000, isAppleWatchData: true),
+                SwimRecord(id: UUID(), date: calendar.date(byAdding: .day, value: -35, to: now)!, distance: 1200, duration: 2500, isAppleWatchData: true)
+            ]
     }
     
     @MainActor
@@ -42,7 +52,7 @@ class PoolTrackerViewModel: ObservableObject {
                     return SwimRecord(
                         id: UUID(),
                         date: workout.startDate,
-                        distance: distanceInMeters / 1000.0, // m -> km
+                        distance: distanceInMeters,
                         duration: workout.duration,
                         isAppleWatchData: true
                     )

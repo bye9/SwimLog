@@ -22,8 +22,9 @@
 		D15B147E2F2A59CB0031ADF7 /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B147D2F2A59C20031ADF7 /* GoalCardView.swift */; };
 		D1A456B42F5AE67700E8EE90 /* SwimCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456B32F5AE67600E8EE90 /* SwimCalendarViewModel.swift */; };
 		D1A456B72F5AE82900E8EE90 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456B62F5AE81A00E8EE90 /* Date+Extension.swift */; };
-		D1A456B92F5AEC9300E8EE90 /* CalendarGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456B82F5AEC8C00E8EE90 /* CalendarGrid.swift */; };
-		D1A456BB2F5B022900E8EE90 /* CalendarDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456BA2F5B022400E8EE90 /* CalendarDay.swift */; };
+		D1A456B92F5AEC9300E8EE90 /* SwimCalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456B82F5AEC8C00E8EE90 /* SwimCalendarGridView.swift */; };
+		D1A456BB2F5B022900E8EE90 /* SwimCalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456BA2F5B022400E8EE90 /* SwimCalendarDayCell.swift */; };
+		D1A456BD2F642AE700E8EE90 /* SwimSummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456BC2F642ACF00E8EE90 /* SwimSummaryCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +64,9 @@
 		D15B147D2F2A59C20031ADF7 /* GoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
 		D1A456B32F5AE67600E8EE90 /* SwimCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimCalendarViewModel.swift; sourceTree = "<group>"; };
 		D1A456B62F5AE81A00E8EE90 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		D1A456B82F5AEC8C00E8EE90 /* CalendarGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGrid.swift; sourceTree = "<group>"; };
-		D1A456BA2F5B022400E8EE90 /* CalendarDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDay.swift; sourceTree = "<group>"; };
+		D1A456B82F5AEC8C00E8EE90 /* SwimCalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimCalendarGridView.swift; sourceTree = "<group>"; };
+		D1A456BA2F5B022400E8EE90 /* SwimCalendarDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimCalendarDayCell.swift; sourceTree = "<group>"; };
+		D1A456BC2F642ACF00E8EE90 /* SwimSummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimSummaryCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -240,8 +242,9 @@
 			isa = PBXGroup;
 			children = (
 				D15B144E2F227BD60031ADF7 /* SwimCalendarView.swift */,
-				D1A456BA2F5B022400E8EE90 /* CalendarDay.swift */,
-				D1A456B82F5AEC8C00E8EE90 /* CalendarGrid.swift */,
+				D1A456B82F5AEC8C00E8EE90 /* SwimCalendarGridView.swift */,
+				D1A456BA2F5B022400E8EE90 /* SwimCalendarDayCell.swift */,
+				D1A456BC2F642ACF00E8EE90 /* SwimSummaryCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -415,11 +418,12 @@
 				D1A456B42F5AE67700E8EE90 /* SwimCalendarViewModel.swift in Sources */,
 				D107FE4E2F3E267100EC9112 /* SwimRecord.swift in Sources */,
 				D15B147A2F2A56C80031ADF7 /* SettingsView.swift in Sources */,
-				D1A456B92F5AEC9300E8EE90 /* CalendarGrid.swift in Sources */,
-				D1A456BB2F5B022900E8EE90 /* CalendarDay.swift in Sources */,
+				D1A456B92F5AEC9300E8EE90 /* SwimCalendarGridView.swift in Sources */,
+				D1A456BB2F5B022900E8EE90 /* SwimCalendarDayCell.swift in Sources */,
 				D107FE502F4C96A400EC9112 /* HealthKitManager.swift in Sources */,
 				D15B145A2F227BD60031ADF7 /* SwimLogApp.swift in Sources */,
 				D15B147C2F2A59BF0031ADF7 /* PoolLaneView.swift in Sources */,
+				D1A456BD2F642AE700E8EE90 /* SwimSummaryCard.swift in Sources */,
 				D107FE4C2F32311600EC9112 /* PoolTrackerViewModel.swift in Sources */,
 				D15B145B2F227BD60031ADF7 /* SwimCalendarView.swift in Sources */,
 				D15B147E2F2A59CB0031ADF7 /* GoalCardView.swift in Sources */,
