@@ -37,6 +37,10 @@ struct SwimCalendarGridView: View {
                             day: day,
                             isToday: dayModel.isToday,
                             status: dayModel.status)
+                        .contentShape(Rectangle()) // 투명한 부분도 클릭 가능하게
+                        .onTapGesture {
+                            viewModel.selectDay(day) // 클릭 시 날짜 선택
+                        }
                     } else {
                         // 시작 전 빈칸 처리
                         Color.clear.frame(height: 44)

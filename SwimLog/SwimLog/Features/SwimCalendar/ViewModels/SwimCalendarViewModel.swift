@@ -10,6 +10,9 @@ import Combine
 
 class SwimCalendarViewModel: ObservableObject {
     @Published var selectedMonth: Date = Date() // 현재 날짜 기준
+    @Published var selectedDate: Date? = nil // 사용자가 클릭한 날짜
+    @Published var isShowingDetail: Bool = false // 시트 표시 여부
+    
     private let calendar = Calendar.current
     
     let todayComponents = Calendar.current.dateComponents([.year, .month, .day], from: Date())
@@ -76,6 +79,15 @@ class SwimCalendarViewModel: ObservableObject {
     func moveToNextMonth() {
         if let nextMonth = calendar.date(byAdding: .month, value: 1, to: selectedMonth) {
             selectedMonth = nextMonth
+        }
+    }
+    
+    // 날짜 클릭 시 실행될 함수
+    func selectDay(_ day: Int) {
+        // 현재 달의 1일에서 (day-1)만큼 더해 클릭한 날짜 객체 생성
+        if let targetDate = calendar.date(byAdding: .day, value: day - 1, to: selectedMonth.startOfMonth(using: calendar)) {
+            self.selectedDate = targetDate
+            self.isShowingDetail = true
         }
     }
 }

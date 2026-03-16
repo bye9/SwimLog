@@ -34,6 +34,9 @@ struct SwimCalendarView: View {
                     
                     // 캘린더
                     SwimCalendarGridView(viewModel: swimCalendarViewModel, allRecords: poolTrackerViewModel.records)
+                        .sheet(isPresented: $swimCalendarViewModel.isShowingDetail) {
+                            SwimRecordDetailSheet(date: swimCalendarViewModel.selectedDate, allRecords: poolTrackerViewModel.records)
+                        }
                     
                     // 통계박스
                     HStack(spacing: 16) {
