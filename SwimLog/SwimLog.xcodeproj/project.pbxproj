@@ -6,6 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D107FE4C2F32311600EC9112 /* PoolTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107FE4B2F32310E00EC9112 /* PoolTrackerViewModel.swift */; };
+		D107FE4E2F3E267100EC9112 /* SwimRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107FE4D2F3E266C00EC9112 /* SwimRecord.swift */; };
+		D107FE502F4C96A400EC9112 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D107FE4F2F4C968500EC9112 /* HealthKitManager.swift */; };
+		D15B145A2F227BD60031ADF7 /* SwimLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B144A2F227BD60031ADF7 /* SwimLogApp.swift */; };
+		D15B145B2F227BD60031ADF7 /* SwimCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B144E2F227BD60031ADF7 /* SwimCalendarView.swift */; };
+		D15B145C2F227BD60031ADF7 /* PoolTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14502F227BD60031ADF7 /* PoolTrackerView.swift */; };
+		D15B145D2F227BD60031ADF7 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14532F227BD60031ADF7 /* MainTabView.swift */; };
+		D15B145E2F227BD60031ADF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14572F227BD60031ADF7 /* ContentView.swift */; };
+		D15B145F2F227BD60031ADF7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14582F227BD60031ADF7 /* Item.swift */; };
+		D15B14602F227BD60031ADF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D15B14562F227BD60031ADF7 /* Assets.xcassets */; };
+		D15B147A2F2A56C80031ADF7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14792F2A56B90031ADF7 /* SettingsView.swift */; };
+		D15B147C2F2A59BF0031ADF7 /* PoolLaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B147B2F2A59B40031ADF7 /* PoolLaneView.swift */; };
+		D15B147E2F2A59CB0031ADF7 /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B147D2F2A59C20031ADF7 /* GoalCardView.swift */; };
+		D1A456B42F5AE67700E8EE90 /* SwimCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456B32F5AE67600E8EE90 /* SwimCalendarViewModel.swift */; };
+		D1A456B72F5AE82900E8EE90 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456B62F5AE81A00E8EE90 /* Date+Extension.swift */; };
+		D1A456B92F5AEC9300E8EE90 /* SwimCalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456B82F5AEC8C00E8EE90 /* SwimCalendarGridView.swift */; };
+		D1A456BB2F5B022900E8EE90 /* SwimCalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456BA2F5B022400E8EE90 /* SwimCalendarDayCell.swift */; };
+		D1A456BD2F642AE700E8EE90 /* SwimSummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456BC2F642ACF00E8EE90 /* SwimSummaryCard.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D15B141D2F226D890031ADF7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,17 +45,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D107FE4B2F32310E00EC9112 /* PoolTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolTrackerViewModel.swift; sourceTree = "<group>"; };
+		D107FE4D2F3E266C00EC9112 /* SwimRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimRecord.swift; sourceTree = "<group>"; };
+		D107FE4F2F4C968500EC9112 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		D107FE512F4C98D300EC9112 /* SwimLog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwimLog.entitlements; sourceTree = "<group>"; };
 		D15B140D2F226D880031ADF7 /* SwimLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwimLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15B141C2F226D890031ADF7 /* SwimLogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimLogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15B14262F226D890031ADF7 /* SwimLogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwimLogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D15B144A2F227BD60031ADF7 /* SwimLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimLogApp.swift; sourceTree = "<group>"; };
+		D15B144E2F227BD60031ADF7 /* SwimCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimCalendarView.swift; sourceTree = "<group>"; };
+		D15B14502F227BD60031ADF7 /* PoolTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolTrackerView.swift; sourceTree = "<group>"; };
+		D15B14532F227BD60031ADF7 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		D15B14562F227BD60031ADF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D15B14572F227BD60031ADF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D15B14582F227BD60031ADF7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		D15B14792F2A56B90031ADF7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D15B147B2F2A59B40031ADF7 /* PoolLaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolLaneView.swift; sourceTree = "<group>"; };
+		D15B147D2F2A59C20031ADF7 /* GoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
+		D1A456B32F5AE67600E8EE90 /* SwimCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimCalendarViewModel.swift; sourceTree = "<group>"; };
+		D1A456B62F5AE81A00E8EE90 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		D1A456B82F5AEC8C00E8EE90 /* SwimCalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimCalendarGridView.swift; sourceTree = "<group>"; };
+		D1A456BA2F5B022400E8EE90 /* SwimCalendarDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimCalendarDayCell.swift; sourceTree = "<group>"; };
+		D1A456BC2F642ACF00E8EE90 /* SwimSummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimSummaryCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D15B140F2F226D880031ADF7 /* SwimLog */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SwimLog;
-			sourceTree = "<group>";
-		};
 		D15B141F2F226D890031ADF7 /* SwimLogTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SwimLogTests;
@@ -75,10 +110,10 @@
 		D15B14042F226D880031ADF7 = {
 			isa = PBXGroup;
 			children = (
-				D15B140F2F226D880031ADF7 /* SwimLog */,
+				D15B140E2F226D880031ADF7 /* Products */,
+				D15B14592F227BD60031ADF7 /* SwimLog */,
 				D15B141F2F226D890031ADF7 /* SwimLogTests */,
 				D15B14292F226D890031ADF7 /* SwimLogUITests */,
-				D15B140E2F226D880031ADF7 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +125,152 @@
 				D15B14262F226D890031ADF7 /* SwimLogUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D15B144B2F227BD60031ADF7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D15B144A2F227BD60031ADF7 /* SwimLogApp.swift */,
+				D15B14532F227BD60031ADF7 /* MainTabView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D15B14592F227BD60031ADF7 /* SwimLog */ = {
+			isa = PBXGroup;
+			children = (
+				D107FE512F4C98D300EC9112 /* SwimLog.entitlements */,
+				D15B144B2F227BD60031ADF7 /* App */,
+				D15B146D2F2A54440031ADF7 /* Features */,
+				D15B146E2F2A54D70031ADF7 /* Core */,
+				D15B14562F227BD60031ADF7 /* Assets.xcassets */,
+				D15B14572F227BD60031ADF7 /* ContentView.swift */,
+				D15B14582F227BD60031ADF7 /* Item.swift */,
+			);
+			path = SwimLog;
+			sourceTree = "<group>";
+		};
+		D15B146D2F2A54440031ADF7 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				D15B146F2F2A552D0031ADF7 /* PoolTracker */,
+				D15B14752F2A56420031ADF7 /* SwimCalendar */,
+				D15B14762F2A566F0031ADF7 /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		D15B146E2F2A54D70031ADF7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D1A456B52F5AE81300E8EE90 /* Extensions */,
+				D15B14732F2A55730031ADF7 /* Models */,
+				D15B14742F2A55770031ADF7 /* Services */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D15B146F2F2A552D0031ADF7 /* PoolTracker */ = {
+			isa = PBXGroup;
+			children = (
+				D15B14702F2A553F0031ADF7 /* Models */,
+				D15B14712F2A55440031ADF7 /* ViewModels */,
+				D15B14722F2A554A0031ADF7 /* Views */,
+			);
+			path = PoolTracker;
+			sourceTree = "<group>";
+		};
+		D15B14702F2A553F0031ADF7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D107FE4D2F3E266C00EC9112 /* SwimRecord.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D15B14712F2A55440031ADF7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D107FE4B2F32310E00EC9112 /* PoolTrackerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D15B14722F2A554A0031ADF7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D15B14502F227BD60031ADF7 /* PoolTrackerView.swift */,
+				D15B147B2F2A59B40031ADF7 /* PoolLaneView.swift */,
+				D15B147D2F2A59C20031ADF7 /* GoalCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D15B14732F2A55730031ADF7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D15B14742F2A55770031ADF7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D107FE4F2F4C968500EC9112 /* HealthKitManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D15B14752F2A56420031ADF7 /* SwimCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				D1A456B22F5AE66900E8EE90 /* ViewModels */,
+				D15B14772F2A56890031ADF7 /* Views */,
+			);
+			path = SwimCalendar;
+			sourceTree = "<group>";
+		};
+		D15B14762F2A566F0031ADF7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D15B14782F2A56B30031ADF7 /* Views */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D15B14772F2A56890031ADF7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D15B144E2F227BD60031ADF7 /* SwimCalendarView.swift */,
+				D1A456B82F5AEC8C00E8EE90 /* SwimCalendarGridView.swift */,
+				D1A456BA2F5B022400E8EE90 /* SwimCalendarDayCell.swift */,
+				D1A456BC2F642ACF00E8EE90 /* SwimSummaryCard.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D15B14782F2A56B30031ADF7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D15B14792F2A56B90031ADF7 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D1A456B22F5AE66900E8EE90 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D1A456B32F5AE67600E8EE90 /* SwimCalendarViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D1A456B52F5AE81300E8EE90 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D1A456B62F5AE81A00E8EE90 /* Date+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,9 +287,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				D15B140F2F226D880031ADF7 /* SwimLog */,
 			);
 			name = SwimLog;
 			packageProductDependencies = (
@@ -212,6 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D15B14602F227BD60031ADF7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +415,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1A456B42F5AE67700E8EE90 /* SwimCalendarViewModel.swift in Sources */,
+				D107FE4E2F3E267100EC9112 /* SwimRecord.swift in Sources */,
+				D15B147A2F2A56C80031ADF7 /* SettingsView.swift in Sources */,
+				D1A456B92F5AEC9300E8EE90 /* SwimCalendarGridView.swift in Sources */,
+				D1A456BB2F5B022900E8EE90 /* SwimCalendarDayCell.swift in Sources */,
+				D107FE502F4C96A400EC9112 /* HealthKitManager.swift in Sources */,
+				D15B145A2F227BD60031ADF7 /* SwimLogApp.swift in Sources */,
+				D15B147C2F2A59BF0031ADF7 /* PoolLaneView.swift in Sources */,
+				D1A456BD2F642AE700E8EE90 /* SwimSummaryCard.swift in Sources */,
+				D107FE4C2F32311600EC9112 /* PoolTrackerViewModel.swift in Sources */,
+				D15B145B2F227BD60031ADF7 /* SwimCalendarView.swift in Sources */,
+				D15B147E2F2A59CB0031ADF7 /* GoalCardView.swift in Sources */,
+				D15B145C2F227BD60031ADF7 /* PoolTrackerView.swift in Sources */,
+				D15B145D2F227BD60031ADF7 /* MainTabView.swift in Sources */,
+				D1A456B72F5AE82900E8EE90 /* Date+Extension.swift in Sources */,
+				D15B145E2F227BD60031ADF7 /* ContentView.swift in Sources */,
+				D15B145F2F227BD60031ADF7 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,30 +591,37 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwimLog/SwimLog.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XZM3XQ6ZMC;
+				DEVELOPMENT_TEAM = UXDXLUL8VJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "수영 기록을 확인하여 목표 달성률을 계산하기 위해 건강 데이터가 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jh.SwimLog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeonghwan.SwimLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -427,30 +630,37 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwimLog/SwimLog.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XZM3XQ6ZMC;
+				DEVELOPMENT_TEAM = UXDXLUL8VJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "수영 기록을 확인하여 목표 달성률을 계산하기 위해 건강 데이터가 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jh.SwimLog;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeonghwan.SwimLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -460,7 +670,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XZM3XQ6ZMC;
+				DEVELOPMENT_TEAM = UXDXLUL8VJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MARKETING_VERSION = 1.0;
@@ -482,7 +692,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XZM3XQ6ZMC;
+				DEVELOPMENT_TEAM = UXDXLUL8VJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MARKETING_VERSION = 1.0;
@@ -503,7 +713,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XZM3XQ6ZMC;
+				DEVELOPMENT_TEAM = UXDXLUL8VJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jh.SwimLogUITests;
@@ -523,7 +733,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XZM3XQ6ZMC;
+				DEVELOPMENT_TEAM = UXDXLUL8VJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jh.SwimLogUITests;
