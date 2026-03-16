@@ -21,7 +21,13 @@ class PoolTrackerViewModel: ObservableObject {
     init() {
         // Combine: records 배열이 바뀔 때마다 거리를 합산해서 currentDistance를 자동 업데이트합니다.
         $records
-            .map { $0.reduce(0) { $0 + $1.distance } }
+            .map { records in
+                // 전체 합계가 아니라 '이번 달' 기록만 필터링해서 합산
+                let now = Date()
+                return records
+                    .filter { Calendar.current.isDate($0.date, equalTo: now, toGranularity: .month) }
+                    .reduce(0) { $0 + $1.distance }
+            }
             .assign(to: &$currentDistance)
         
         // 2. 테스트용 가짜 데이터 주입 (아까 드린 코드)
@@ -42,9 +48,9 @@ class PoolTrackerViewModel: ObservableObject {
             let isAuthorized = try await healthKitManager.requestAuthorization()
             
             if isAuthorized {
-                // 이번 달 1일부터 현재까지의 데이터 가져오기
-                let startOfMonth = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Date())) ?? Date()
-                let workouts = try await healthKitManager.fetchSwimmingSessions(from: startOfMonth)
+                // 1년 치 데이터 가져오기
+                let yearAgo = Calendar.current.date(byAdding: .month, value: -12, to: Date()) ?? Date()
+                let workouts = try await healthKitManager.fetchSwimmingSessions(from: yearAgo)
                 
                 // HKWorkout 객체를 우리 앱의 SwimRecord 모델로 매핑
                 self.records = workouts.map { workout in
