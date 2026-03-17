@@ -36,7 +36,7 @@ struct SwimSummaryCard: View {
                     .foregroundStyle(.gray.opacity(0.8))
             }
         }
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, minHeight: 120)
         .padding(.vertical, 20)
         .background(Color.white)
         .cornerRadius(24)

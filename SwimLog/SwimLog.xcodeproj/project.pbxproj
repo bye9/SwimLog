@@ -26,6 +26,8 @@
 		D1A456BB2F5B022900E8EE90 /* SwimCalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456BA2F5B022400E8EE90 /* SwimCalendarDayCell.swift */; };
 		D1A456BD2F642AE700E8EE90 /* SwimSummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A456BC2F642ACF00E8EE90 /* SwimSummaryCard.swift */; };
 		D1A457732F6826B000E8EE90 /* SwimRecordDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A457722F6826AD00E8EE90 /* SwimRecordDetailSheet.swift */; };
+		D1A457762F696B1700E8EE90 /* SwimDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A457752F696B1200E8EE90 /* SwimDetailCard.swift */; };
+		D1A457782F69771E00E8EE90 /* SwimDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A457772F69771E00E8EE90 /* SwimDetailRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		D1A456BA2F5B022400E8EE90 /* SwimCalendarDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimCalendarDayCell.swift; sourceTree = "<group>"; };
 		D1A456BC2F642ACF00E8EE90 /* SwimSummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimSummaryCard.swift; sourceTree = "<group>"; };
 		D1A457722F6826AD00E8EE90 /* SwimRecordDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimRecordDetailSheet.swift; sourceTree = "<group>"; };
+		D1A457752F696B1200E8EE90 /* SwimDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimDetailCard.swift; sourceTree = "<group>"; };
+		D1A457772F69771E00E8EE90 /* SwimDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimDetailRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -243,11 +247,9 @@
 		D15B14772F2A56890031ADF7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D15B144E2F227BD60031ADF7 /* SwimCalendarView.swift */,
-				D1A456B82F5AEC8C00E8EE90 /* SwimCalendarGridView.swift */,
-				D1A456BA2F5B022400E8EE90 /* SwimCalendarDayCell.swift */,
-				D1A456BC2F642ACF00E8EE90 /* SwimSummaryCard.swift */,
-				D1A457722F6826AD00E8EE90 /* SwimRecordDetailSheet.swift */,
+				D1A457792F69778700E8EE90 /* Calendar */,
+				D1A4577A2F69779100E8EE90 /* Detail */,
+				D1A457742F696ABB00E8EE90 /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,6 +276,34 @@
 				D1A456B62F5AE81A00E8EE90 /* Date+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D1A457742F696ABB00E8EE90 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D1A456BC2F642ACF00E8EE90 /* SwimSummaryCard.swift */,
+				D1A456BA2F5B022400E8EE90 /* SwimCalendarDayCell.swift */,
+				D1A457752F696B1200E8EE90 /* SwimDetailCard.swift */,
+				D1A457772F69771E00E8EE90 /* SwimDetailRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D1A457792F69778700E8EE90 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				D15B144E2F227BD60031ADF7 /* SwimCalendarView.swift */,
+				D1A456B82F5AEC8C00E8EE90 /* SwimCalendarGridView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		D1A4577A2F69779100E8EE90 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D1A457722F6826AD00E8EE90 /* SwimRecordDetailSheet.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,10 +461,12 @@
 				D107FE4C2F32311600EC9112 /* PoolTrackerViewModel.swift in Sources */,
 				D15B145B2F227BD60031ADF7 /* SwimCalendarView.swift in Sources */,
 				D15B147E2F2A59CB0031ADF7 /* GoalCardView.swift in Sources */,
+				D1A457782F69771E00E8EE90 /* SwimDetailRow.swift in Sources */,
 				D15B145C2F227BD60031ADF7 /* PoolTrackerView.swift in Sources */,
 				D15B145D2F227BD60031ADF7 /* MainTabView.swift in Sources */,
 				D1A456B72F5AE82900E8EE90 /* Date+Extension.swift in Sources */,
 				D15B145E2F227BD60031ADF7 /* ContentView.swift in Sources */,
+				D1A457762F696B1700E8EE90 /* SwimDetailCard.swift in Sources */,
 				D15B145F2F227BD60031ADF7 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
