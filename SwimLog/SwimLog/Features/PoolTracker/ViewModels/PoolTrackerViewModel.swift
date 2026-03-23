@@ -34,11 +34,11 @@ class PoolTrackerViewModel: ObservableObject {
             let calendar = Calendar.current
             let now = Date()
             
-            self.records = [
-                SwimRecord(id: UUID(), date: now, distance: 1500, duration: 3000, isAppleWatchData: true),
-                SwimRecord(id: UUID(), date: calendar.date(byAdding: .day, value: -3, to: now)!, distance: 2000, duration: 4000, isAppleWatchData: true),
-                SwimRecord(id: UUID(), date: calendar.date(byAdding: .day, value: -35, to: now)!, distance: 1200, duration: 2500, isAppleWatchData: true)
-            ]
+//            self.records = [
+//                SwimRecord(id: UUID(), date: now, distance: 1500, duration: 3000, isAppleWatchData: true),
+//                SwimRecord(id: UUID(), date: calendar.date(byAdding: .day, value: -3, to: now)!, distance: 2000, duration: 4000, isAppleWatchData: true),
+//                SwimRecord(id: UUID(), date: calendar.date(byAdding: .day, value: -35, to: now)!, distance: 1200, duration: 2500, isAppleWatchData: true)
+//            ]
     }
     
     @MainActor
@@ -55,12 +55,15 @@ class PoolTrackerViewModel: ObservableObject {
                 // HKWorkout 객체를 우리 앱의 SwimRecord 모델로 매핑
                 self.records = workouts.map { workout in
                     let distanceInMeters = workout.totalDistance?.doubleValue(for: .meter()) ?? 0
+                    let calories = workout.totalEnergyBurned?.doubleValue(for: .kilocalorie()) ?? 0
                     return SwimRecord(
                         id: UUID(),
                         date: workout.startDate,
                         distance: distanceInMeters,
                         duration: workout.duration,
-                        isAppleWatchData: true
+                        isAppleWatchData: true,
+                        calories: calories,
+                        avgHeartRate: 135
                     )
                 }
             }

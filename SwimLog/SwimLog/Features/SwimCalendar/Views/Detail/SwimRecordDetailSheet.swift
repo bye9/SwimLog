@@ -34,7 +34,7 @@ struct SwimRecordDetailSheet: View {
                 
                 // 2. 3개 박스
                 HStack(spacing: 12) {
-                    SwimDetailCard(icon: "figure.pool.swim", title: "DISTANCE", value: String(format: "%.1f", record.distance), unit: "km")
+                    SwimDetailCard(icon: "figure.pool.swim", title: "DISTANCE", value: String(format: "%.1f", record.distance / 1000), unit: "km")
                     SwimDetailCard(icon: "clock.fill", title: "DURATION", value: formatDurationToMinutes(record.duration), unit: "m")
                     SwimDetailCard(icon: "gauge.with.needle.fill", title: "AVG PACE", value: "1:50", unit: "/100m")
                 }
@@ -42,8 +42,8 @@ struct SwimRecordDetailSheet: View {
                 
                 // 3. 활동량 및 심박수
                 VStack(spacing: 16) {
-                    SwimDetailRow(icon: "flame.fill", iconColor: .orange, title: "Calories", subTitle: "Total energy burned", value: "420", unit: "kcal")
-                    SwimDetailRow(icon: "heart.fill", iconColor: .red, title: "Avg Heart Rate", subTitle: "Consistent effort", value: "135", unit: "bpm")
+                    SwimDetailRow(icon: "flame.fill", iconColor: .orange, title: "Calories", subTitle: "Total energy burned", value: String(format: "%.0f", record.calories), unit: "kcal")
+                    SwimDetailRow(icon: "heart.fill", iconColor: .red, title: "Avg Heart Rate", subTitle: "Consistent effort", value: String(format: "%.0f", record.avgHeartRate), unit: "bpm")
                 }
                 .padding(.horizontal, 24)
             } else {
@@ -57,6 +57,7 @@ struct SwimRecordDetailSheet: View {
         .presentationBackgroundInteraction(.enabled) // 필요시 시트 뒤 터치 허용
         .presentationDetents([.medium, .large])
         .presentationDragIndicator(.visible)
+//        .presentationBackground(.red.opacity(0.5))
     }
     
     // 초 단위를 분 단위로 변환 (예: 2700초 -> 45)
@@ -83,5 +84,5 @@ fileprivate struct EmptyStateDetailView: View {
 }
 
 #Preview {
-    SwimRecordDetailSheet(date: Date(), allRecords: [SwimRecord(id: UUID(), date: Date(), distance: 24, duration: 100, isAppleWatchData: true)])
+    SwimRecordDetailSheet(date: Date(), allRecords: [SwimRecord(id: UUID(), date: Date(), distance: 24, duration: 100, isAppleWatchData: true, calories: 240, avgHeartRate: 132.2)])
 }
