@@ -30,6 +30,7 @@ struct SwimLogApp: App {
             MainTabView()
                 // 하위의 모든 뷰가 이 객체를 공유합니다.
                 .environmentObject(poolTrackerViewModel)
+                .preferredColorScheme(.light)
         }
 //        .modelContainer(sharedModelContainer)
     }

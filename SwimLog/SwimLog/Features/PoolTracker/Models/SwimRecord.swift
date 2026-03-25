@@ -14,15 +14,17 @@ struct SwimRecord: Identifiable, Hashable {
     let duration: TimeInterval
     let isAppleWatchData: Bool
     let calories: Double
-    let avgHeartRate: Double
+    let averageHeartRate: Double
+    let averagePace: Double
     
-    init(id: UUID, date: Date, distance: Double, duration: TimeInterval, isAppleWatchData: Bool, calories: Double, avgHeartRate: Double) {
+    init(id: UUID, date: Date, distance: Double, duration: TimeInterval, isAppleWatchData: Bool, calories: Double, averageHeartRate: Double, averagePace: Double) {
         self.id = id
         self.date = date
         self.distance = distance
         self.duration = duration
         self.isAppleWatchData = isAppleWatchData
         self.calories = calories
-        self.avgHeartRate = avgHeartRate
+        self.averageHeartRate = averageHeartRate
+        self.averagePace = averagePace
     }
 }

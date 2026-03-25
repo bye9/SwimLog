@@ -37,7 +37,7 @@ struct SwimDetailRow: View {
             
             HStack(alignment: .firstTextBaseline, spacing: 2) {
                 Text(value)
-                    .font(.system(size: 22, weight: .bold, design: .rounded))
+                    .font(.system(size: 16, weight: .bold, design: .rounded))
                 Text(unit)
                     .font(.caption)
                     .fontWeight(.bold)

@@ -18,6 +18,16 @@ class PoolTrackerViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private let healthKitManager = HealthKitManager()
     
+    // 목표 진행률 계산
+    var progress: Double {
+        monthlyGoalDistance > 0 ? min(currentDistanceInKm / monthlyGoalDistance, 1.0) : 0
+    }
+    
+    // km 변환 프로퍼티
+    var currentDistanceInKm: Double {
+        return currentDistance / 1000.0
+    }
+    
     init() {
         // Combine: records 배열이 바뀔 때마다 거리를 합산해서 currentDistance를 자동 업데이트합니다.
         $records
@@ -54,8 +64,20 @@ class PoolTrackerViewModel: ObservableObject {
                 
                 // HKWorkout 객체를 우리 앱의 SwimRecord 모델로 매핑
                 self.records = workouts.map { workout in
+                    // 1. 기본 데이터 추출
                     let distanceInMeters = workout.totalDistance?.doubleValue(for: .meter()) ?? 0
                     let calories = workout.totalEnergyBurned?.doubleValue(for: .kilocalorie()) ?? 0
+                    
+                    // 2. 평균 페이스(속력) 추출
+                    // 애플워치가 계산한 공식 평균 속력이 있다면 가져오고, 없으면 직접 계산합니다.
+                    let averagePace: Double
+                    if let speedQuantity = workout.metadata?[HKMetadataKeyAverageSpeed] as? HKQuantity {
+                        averagePace = speedQuantity.doubleValue(for: HKUnit(from: "m/s"))
+                    } else {
+                        // 속력 = 거리 / 시간
+                        averagePace = workout.duration > 0 ? (distanceInMeters / workout.duration) : 0
+                    }
+                    
                     return SwimRecord(
                         id: UUID(),
                         date: workout.startDate,
@@ -63,17 +85,13 @@ class PoolTrackerViewModel: ObservableObject {
                         duration: workout.duration,
                         isAppleWatchData: true,
                         calories: calories,
-                        avgHeartRate: 135
+                        averageHeartRate: 135,
+                        averagePace: averagePace
                     )
                 }
             }
         } catch {
             print("데이터 동기화 실패: \(error.localizedDescription)")
         }
-    }
-    
-    // 목표 진행률 계산
-    var progress: Double {
-        monthlyGoalDistance > 0 ? min(currentDistance / monthlyGoalDistance, 1.0) : 0
     }
 }

@@ -26,7 +26,7 @@ struct SwimDetailCard: View {
                 
                 HStack(alignment: .firstTextBaseline, spacing: 1) {
                     Text(value)
-                        .font(.system(size: 20, weight: .bold, design: .rounded))
+                        .font(.system(size: 16, weight: .bold, design: .rounded))
                         .foregroundStyle(.primary)
                         .lineLimit(1)
                     Text(unit)

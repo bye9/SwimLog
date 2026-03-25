@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PoolTrackerView: View {
-    @StateObject private var viewModel = PoolTrackerViewModel()
+    @EnvironmentObject var viewModel: PoolTrackerViewModel // 주입된 것 사용
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -19,7 +19,7 @@ struct PoolTrackerView: View {
                 VStack(spacing: 24) {
                     // 상단 글래스 카드 및 UI 요소
                     GoalCardView(
-                        currentDistance: viewModel.currentDistance,
+                        currentDistanceInKm: viewModel.currentDistanceInKm,
                         monthlyGoalDistance: viewModel.monthlyGoalDistance,
                         progress: viewModel.progress
                     )

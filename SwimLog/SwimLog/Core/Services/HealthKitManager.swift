@@ -12,12 +12,15 @@ class HealthKitManager {
     
     /// 1. 권한 요청: 건강 데이터 접근 승인을 받습니다.
     func requestAuthorization() async throws -> Bool {
-        // 읽기 권한을 가질 타입 정의 (운동 기록 및 수영 거리)
+        // 읽기 권한을 가질 타입 정의
         let readDataTypes: Set = [
             HKObjectType.workoutType(),
-            HKQuantityType.quantityType(forIdentifier: .distanceSwimming)!
+            HKQuantityType(.distanceSwimming),     // 수영 거리
+            HKQuantityType(.heartRate),            // 심박수 추가
+            HKQuantityType(.activeEnergyBurned)    // 칼로리(에너지 소모량) 추가
         ]
         
+        // 비동기로 권한 요청
         try await healthStore.requestAuthorization(toShare: [], read: readDataTypes)
         
         return true
@@ -45,6 +48,22 @@ class HealthKitManager {
             }
             
             healthStore.execute(query)
+        }
+    }
+    
+    func fetchAvgHeartRate(for workout: HKWorkout) async -> Double? {
+        let heartRateType = HKQuantityType(.heartRate)
+        let predicate = HKQuery.predicateForSamples(withStart: workout.startDate, end: workout.endDate, options: .strictStartDate)
+        
+        let heartRatePredicate = HKSamplePredicate.quantitySample(type: heartRateType, predicate: predicate)
+        let descriptor = HKStatisticsQueryDescriptor(predicate: heartRatePredicate, options: .discreteAverage)
+        
+        do {
+            let statistics = try await descriptor.result(for: healthStore)
+            return statistics?.averageQuantity()?.doubleValue(for: HKUnit(from: "count/min"))
+        } catch {
+            print("심박수 쿼리 실패: \(error)")
+            return nil
         }
     }
 }

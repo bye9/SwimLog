@@ -34,16 +34,16 @@ struct SwimRecordDetailSheet: View {
                 
                 // 2. 3개 박스
                 HStack(spacing: 12) {
-                    SwimDetailCard(icon: "figure.pool.swim", title: "DISTANCE", value: String(format: "%.1f", record.distance / 1000), unit: "km")
-                    SwimDetailCard(icon: "clock.fill", title: "DURATION", value: formatDurationToMinutes(record.duration), unit: "m")
-                    SwimDetailCard(icon: "gauge.with.needle.fill", title: "AVG PACE", value: "1:50", unit: "/100m")
+                    SwimDetailCard(icon: "figure.pool.swim", title: "거리", value: String(format: "%.0f", record.distance), unit: "m")
+                    SwimDetailCard(icon: "clock.fill", title: "운동 시간", value: formatDuration(record.duration), unit: "")
+                    SwimDetailCard(icon: "gauge.with.needle.fill", title: "평균 페이스", value: formatPace(velocity: record.averagePace), unit: "/100m")
                 }
                 .padding(.horizontal, 20)
                 
-                // 3. 활동량 및 심박수
+                // 3. 칼로리 및 심박수
                 VStack(spacing: 16) {
-                    SwimDetailRow(icon: "flame.fill", iconColor: .orange, title: "Calories", subTitle: "Total energy burned", value: String(format: "%.0f", record.calories), unit: "kcal")
-                    SwimDetailRow(icon: "heart.fill", iconColor: .red, title: "Avg Heart Rate", subTitle: "Consistent effort", value: String(format: "%.0f", record.avgHeartRate), unit: "bpm")
+                    SwimDetailRow(icon: "flame.fill", iconColor: .orange, title: "Calories", subTitle: "활동 킬로칼로리", value: String(format: "%.0f", record.calories), unit: "kcal")
+                    SwimDetailRow(icon: "heart.fill", iconColor: .red, title: "Avg Heart Rate", subTitle: "평균 심박수", value: String(format: "%.0f", record.averageHeartRate), unit: "bpm")
                 }
                 .padding(.horizontal, 24)
             } else {
@@ -60,9 +60,23 @@ struct SwimRecordDetailSheet: View {
 //        .presentationBackground(.red.opacity(0.5))
     }
     
-    // 초 단위를 분 단위로 변환 (예: 2700초 -> 45)
-    func formatDurationToMinutes(_ seconds: TimeInterval) -> String {
-        return "\(Int(seconds) / 60)"
+    // 초 단위를 HH:mm:ss 형식으로 변환 (예: 3704초 -> 01:01:44)
+    func formatDuration(_ seconds: TimeInterval) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .positional // 00:00:00 형식
+        formatter.zeroFormattingBehavior = .pad // 한 자리 숫자일 때 앞에 0을 붙임
+        
+        return formatter.string(from: seconds) ?? "00:00:00"
+    }
+    
+    // 페이스 계산
+    func formatPace(velocity: Double) -> String {
+        guard velocity > 0 else { return "0:00" }
+        let secondsFor100m = 100.0 / velocity
+        let minutes = Int(secondsFor100m) / 60
+        let seconds = Int(secondsFor100m) % 60
+        return String(format: "%d:%02d", minutes, seconds)
     }
 }
 
@@ -84,5 +98,5 @@ fileprivate struct EmptyStateDetailView: View {
 }
 
 #Preview {
-    SwimRecordDetailSheet(date: Date(), allRecords: [SwimRecord(id: UUID(), date: Date(), distance: 24, duration: 100, isAppleWatchData: true, calories: 240, avgHeartRate: 132.2)])
+    SwimRecordDetailSheet(date: Date(), allRecords: [SwimRecord(id: UUID(), date: Date(), distance: 820, duration: 100, isAppleWatchData: true, calories: 240, averageHeartRate: 132.2, averagePace: 0.83)])
 }

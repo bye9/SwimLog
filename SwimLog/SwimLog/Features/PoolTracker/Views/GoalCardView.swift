@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GoalCardView: View {
-    let currentDistance: Double
+    let currentDistanceInKm: Double
     let monthlyGoalDistance: Double
     var progress: Double
     
@@ -23,7 +23,7 @@ struct GoalCardView: View {
                         .foregroundStyle(.secondary)
                     
                     HStack(alignment: .firstTextBaseline, spacing: 4) {
-                        Text(String(format: "%.1f", currentDistance))
+                        Text(String(format: "%.1f", currentDistanceInKm))
                             .font(.system(size: 40, weight: .bold, design: .rounded))
                         Text("/ \(String(format: "%.1f", monthlyGoalDistance)) km")
                             .font(.system(size: 25, weight: .semibold, design: .rounded))
@@ -101,7 +101,7 @@ struct GoalCardView: View {
         let viewModel = PoolTrackerViewModel()
         
         Color.blue.opacity(0.1).ignoresSafeArea()
-        GoalCardView(currentDistance: viewModel.currentDistance, monthlyGoalDistance: viewModel.monthlyGoalDistance, progress: viewModel.progress)
+        GoalCardView(currentDistanceInKm: viewModel.currentDistanceInKm, monthlyGoalDistance: viewModel.monthlyGoalDistance, progress: viewModel.progress)
             .padding()
     }
 }

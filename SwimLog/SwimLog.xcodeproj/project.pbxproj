@@ -634,7 +634,7 @@
 				DEVELOPMENT_TEAM = UXDXLUL8VJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "수영 기록을 확인하여 목표 달성률을 계산하기 위해 건강 데이터가 필요합니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "수영 기록을 확인하여 목표 달성률을 계산하기 위해 건강 데이터가 필요합니다. 심박수 및 활동량 데이터를 읽기 위해 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -673,7 +673,7 @@
 				DEVELOPMENT_TEAM = UXDXLUL8VJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "수영 기록을 확인하여 목표 달성률을 계산하기 위해 건강 데이터가 필요합니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "수영 기록을 확인하여 목표 달성률을 계산하기 위해 건강 데이터가 필요합니다. 심박수 및 활동량 데이터를 읽기 위해 권한이 필요합니다";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
