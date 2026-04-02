@@ -18,7 +18,7 @@ struct SwimRecordDetailSheet: View {
     }
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(alignment: .leading, spacing: 20) {
             if let date = date, let record = filteredRecords.first {
                 // 1. 헤더 섹션
                 VStack(alignment: .leading, spacing: 4) {
@@ -30,33 +30,41 @@ struct SwimRecordDetailSheet: View {
                         .font(.headline)
                         .foregroundColor(.cyan)
                 }
-                .padding(.vertical, 10)
+                .padding(.horizontal, 16)
                 
                 // 2. 3개 박스
-                HStack(spacing: 12) {
+                HStack(alignment: .center, spacing: 10) {
                     SwimDetailCard(icon: "figure.pool.swim", title: "거리", value: String(format: "%.0f", record.distance), unit: "m")
+                        .frame(maxWidth: .infinity)
                     SwimDetailCard(icon: "clock.fill", title: "운동 시간", value: formatDuration(record.duration), unit: "")
+                        .frame(maxWidth: .infinity)
                     SwimDetailCard(icon: "gauge.with.needle.fill", title: "평균 페이스", value: formatPace(velocity: record.averagePace), unit: "/100m")
+                        .frame(maxWidth: .infinity)
                 }
-                .padding(.horizontal, 20)
+                
+                .padding(.horizontal, 16)
                 
                 // 3. 칼로리 및 심박수
                 VStack(spacing: 16) {
                     SwimDetailRow(icon: "flame.fill", iconColor: .orange, title: "Calories", subTitle: "활동 킬로칼로리", value: String(format: "%.0f", record.calories), unit: "kcal")
                     SwimDetailRow(icon: "heart.fill", iconColor: .red, title: "Avg Heart Rate", subTitle: "평균 심박수", value: String(format: "%.0f", record.averageHeartRate), unit: "bpm")
                 }
-                .padding(.horizontal, 24)
+                .padding(.horizontal, 16)
+                
+                // 맨 아래에 빈 공간을 몰아넣어 상단 요소들을 위로 밀착
+                Spacer(minLength: 0)
             } else {
                 EmptyStateDetailView()
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.top, 20) // 상단 여유 공간
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         // 1. 배경을 유리 효과로 변경
         .background(.ultraThinMaterial)
         // 2. 시트 자체의 배경색을 투명하게 해서 뒤가 비치게 함
         .presentationBackgroundInteraction(.enabled) // 필요시 시트 뒤 터치 허용
-        .presentationDetents([.medium, .large])
-        .presentationDragIndicator(.visible)
+        .presentationDetents([.medium])
+        .presentationDragIndicator(.hidden)
 //        .presentationBackground(.red.opacity(0.5))
     }
     
@@ -84,19 +92,21 @@ struct SwimRecordDetailSheet: View {
 fileprivate struct EmptyStateDetailView: View {
     var body: some View {
         VStack(spacing: 20) {
-            Spacer(minLength: 100)
             Image(systemName: "figure.pool.swim")
                 .font(.system(size: 70))
                 .foregroundStyle(.quaternary)
+                .padding(.top, 140)
             Text("No swim records for this day.")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-            Spacer()
+            Spacer(minLength: 0)
         }
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top) // 전체를 상단 정렬로 고정
     }
 }
 
 #Preview {
     SwimRecordDetailSheet(date: Date(), allRecords: [SwimRecord(id: UUID(), date: Date(), distance: 820, duration: 100, isAppleWatchData: true, calories: 240, averageHeartRate: 132.2, averagePace: 0.83)])
+    
+//    SwimRecordDetailSheet(date: Date(), allRecords: [])
 }

@@ -37,7 +37,6 @@ struct SwimDetailCard: View {
         }
         .frame(maxWidth: .infinity)
         .padding(16)
-        .aspectRatio(1, contentMode: .fit)
         .background(Color(uiColor: .secondarySystemGroupedBackground))
         .cornerRadius(24)
     }
