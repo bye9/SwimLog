@@ -35,8 +35,11 @@ struct SwimDetailCard: View {
                 }
             }
         }
-        .frame(maxWidth: .infinity)
-        .padding(16)
+        // 1. 상단, 하단, 오른쪽은 12로 고정
+        .padding([.top, .bottom, .trailing], 12)
+        // 2. 왼쪽만 살짝 더 띄우고 싶다면 (예: 16~20)
+        .padding(.leading, 18)
+        .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color(uiColor: .secondarySystemGroupedBackground))
         .cornerRadius(24)
     }

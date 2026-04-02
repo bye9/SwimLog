@@ -10,6 +10,7 @@ import Foundation
 struct SwimRecord: Identifiable, Hashable {
     let id: UUID
     let date: Date
+    let endDate: Date
     let distance: Double
     let duration: TimeInterval
     let isAppleWatchData: Bool
@@ -17,9 +18,10 @@ struct SwimRecord: Identifiable, Hashable {
     let averageHeartRate: Double
     let averagePace: Double
     
-    init(id: UUID, date: Date, distance: Double, duration: TimeInterval, isAppleWatchData: Bool, calories: Double, averageHeartRate: Double, averagePace: Double) {
+    init(id: UUID, date: Date, endDate: Date, distance: Double, duration: TimeInterval, isAppleWatchData: Bool, calories: Double, averageHeartRate: Double, averagePace: Double) {
         self.id = id
         self.date = date
+        self.endDate = endDate
         self.distance = distance
         self.duration = duration
         self.isAppleWatchData = isAppleWatchData

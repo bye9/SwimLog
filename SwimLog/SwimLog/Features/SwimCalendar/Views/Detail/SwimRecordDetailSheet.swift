@@ -22,15 +22,18 @@ struct SwimRecordDetailSheet: View {
             if let date = date, let record = filteredRecords.first {
                 // 1. 헤더 섹션
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(date, style: .date)
+                    // 예: 4월 2일 목요일
+                    Text(record.date.formatted(.dateTime.month(.wide).day().weekday(.wide).locale(Locale(identifier: "ko_KR"))))
                         .font(.headline)
                         .padding(.top, 30)
                     
-                    Text("수영언제했는지")
-                        .font(.headline)
+                    // 예: 오후 2:00 - 오후 3:30
+                    Text("\(record.date.formatted(.dateTime.hour().minute().locale(Locale(identifier: "ko_KR")))) - \(record.endDate.formatted(.dateTime.hour().minute().locale(Locale(identifier: "ko_KR"))))")
+                        .font(.subheadline)
                         .foregroundColor(.cyan)
+                        .bold()
                 }
-                .padding(.horizontal, 16)
+                .padding(.horizontal, 20)
                 
                 // 2. 3개 박스
                 HStack(alignment: .center, spacing: 10) {
@@ -106,7 +109,7 @@ fileprivate struct EmptyStateDetailView: View {
 }
 
 #Preview {
-    SwimRecordDetailSheet(date: Date(), allRecords: [SwimRecord(id: UUID(), date: Date(), distance: 820, duration: 100, isAppleWatchData: true, calories: 240, averageHeartRate: 132.2, averagePace: 0.83)])
+    SwimRecordDetailSheet(date: Date(), allRecords: [SwimRecord(id: UUID(), date: Date(), endDate: Date(), distance: 820, duration: 100, isAppleWatchData: true, calories: 240, averageHeartRate: 132.2, averagePace: 0.83)])
     
 //    SwimRecordDetailSheet(date: Date(), allRecords: [])
 }

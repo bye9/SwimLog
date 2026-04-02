@@ -61,15 +61,18 @@ class PoolTrackerViewModel: ObservableObject {
                 // 1년 치 데이터 가져오기
                 let yearAgo = Calendar.current.date(byAdding: .month, value: -12, to: Date()) ?? Date()
                 let workouts = try await healthKitManager.fetchSwimmingSessions(from: yearAgo)
+                let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)!
                 
                 // HKWorkout 객체를 우리 앱의 SwimRecord 모델로 매핑
                 self.records = workouts.map { workout in
-                    // 1. 기본 데이터 추출
+                    // 기본 데이터 추출
                     let distanceInMeters = workout.totalDistance?.doubleValue(for: .meter()) ?? 0
                     let calories = workout.totalEnergyBurned?.doubleValue(for: .kilocalorie()) ?? 0
+                    let startTime = workout.startDate
+                    let endTime = workout.endDate
                     
-                    // 2. 평균 페이스(속력) 추출
-                    // 애플워치가 계산한 공식 평균 속력이 있다면 가져오고, 없으면 직접 계산합니다.
+                    // 평균 페이스(속력) 추출
+                    // 애플워치가 계산한 공식 평균 속력이 있다면 가져오고, 없으면 직접 계산
                     let averagePace: Double
                     if let speedQuantity = workout.metadata?[HKMetadataKeyAverageSpeed] as? HKQuantity {
                         averagePace = speedQuantity.doubleValue(for: HKUnit(from: "m/s"))
@@ -78,14 +81,24 @@ class PoolTrackerViewModel: ObservableObject {
                         averagePace = workout.duration > 0 ? (distanceInMeters / workout.duration) : 0
                     }
                     
+                    // 평균 심박수 추출
+                    var averageHeartRate: Double = 0
+                    
+                    // workout 내부에 저장된 심박수 통계 확인
+                    if let statistics = workout.statistics(for: heartRateType),
+                        let averageQuantity = statistics.averageQuantity() {
+                            averageHeartRate = averageQuantity.doubleValue(for: HKUnit.count().unitDivided(by: .minute()))
+                    }
+                    
                     return SwimRecord(
                         id: UUID(),
-                        date: workout.startDate,
+                        date: startTime,
+                        endDate: endTime,
                         distance: distanceInMeters,
                         duration: workout.duration,
                         isAppleWatchData: true,
                         calories: calories,
-                        averageHeartRate: 135,
+                        averageHeartRate: averageHeartRate,
                         averagePace: averagePace
                     )
                 }
