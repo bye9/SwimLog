@@ -21,8 +21,7 @@ struct SwimCalendarView: View {
                                 .font(.title3.bold())
                                 .foregroundStyle(.cyan)
                         }
-                        
-                        Text("\(swimCalendarViewModel.selectedMonth, format: .dateTime.year().month())")
+                        Text(swimCalendarViewModel.selectedMonth.formatted(.dateTime.year().month(.wide).locale(Locale(identifier: "ko_KR"))))
                             .font(.title2.bold())
                         
                         Button(action: swimCalendarViewModel.moveToNextMonth) {
@@ -34,6 +33,23 @@ struct SwimCalendarView: View {
                     
                     // 캘린더
                     SwimCalendarGridView(viewModel: swimCalendarViewModel, allRecords: poolTrackerViewModel.records)
+                        .gesture(DragGesture(minimumDistance: 30)
+                            .onEnded { value in
+                                // 1. 왼쪽으로 밀면 다음 달
+                                if value.translation.width < -50 {
+                                    withAnimation {
+                                        swimCalendarViewModel.moveToNextMonth()
+                                    }
+                                    
+                                }
+                                // 2. 오른쪽으로 밀면 이전 달
+                                else if value.translation.width > 50 {
+                                    withAnimation {
+                                        swimCalendarViewModel.moveToPreviousMonth()
+                                    }
+                                }
+                            }
+                        )
                         .sheet(isPresented: $swimCalendarViewModel.isShowingDetail) {
                             SwimRecordDetailSheet(date: swimCalendarViewModel.selectedDate, allRecords: poolTrackerViewModel.records)
                         }
@@ -44,7 +60,7 @@ struct SwimCalendarView: View {
                         
                         SwimSummaryCard(
                             icon: "figure.pool.swim",
-                            title: "TOTAL SWIMS",
+                            title: "총 수영횟수",
                             value: "\(monthRecords.count)",
                             unit: "",
                             iconColor: .cyan
@@ -52,7 +68,7 @@ struct SwimCalendarView: View {
                         
                         SwimSummaryCard(
                             icon: "location.fill",
-                            title: "DISTANCE",
+                            title: "총 수영거리",
                             value: String(format: "%.1f", swimCalendarViewModel.totalDistance(allRecords: poolTrackerViewModel.records)),
                             unit: "km",
                             iconColor: .cyan
@@ -70,7 +86,6 @@ struct SwimCalendarView: View {
 
 #Preview {
     SwimCalendarView()
-    // 프리뷰를 위한 가짜 데이터를 넣은 VM을 주입합니다.
         .environmentObject(PoolTrackerViewModel())
     
 }

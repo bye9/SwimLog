@@ -17,6 +17,7 @@ enum DayStatus {
 struct SwimCalendarDayCell: View {
     let day: Int
     let isToday: Bool
+    let isSelected: Bool
     let status: DayStatus
     
     var body: some View {
@@ -27,12 +28,25 @@ struct SwimCalendarDayCell: View {
                 .aspectRatio(1.0, contentMode: .fit) // 정사각형 유지
                 .overlay(
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(isToday ? Color.blue : Color.clear, lineWidth: 2)
+                    // 선택되었을 때만 파란색 테두리, 두께는 약간 두껍게(3)
+                        .stroke(isSelected ? Color.blue : Color.clear, lineWidth: 2)
                 )
             
-            Text("\(day)")
-                .font(.system(size: 16, weight: isToday ? .bold : .medium))
-                .foregroundStyle(textColor)
+            // 오늘 표시
+            VStack(spacing: 2) {
+                Text("\(day)")
+                    .font(.system(size: 16, weight: isSelected ? .bold : (isToday ? .bold : .medium)))
+                    .foregroundStyle(textColor)
+                
+                if isToday {
+                    Circle()
+                        .fill(isSelected ? .white : (status == .recorded ? .white : .blue))
+                        .frame(width: 4, height: 4)
+                } else {
+                    // 레이아웃 유지를 위한 투명 공간
+                    Spacer().frame(height: 4)
+                }
+            }
         }
         
     }
@@ -53,5 +67,5 @@ struct SwimCalendarDayCell: View {
 }
 
 #Preview {
-    SwimCalendarDayCell(day: 5, isToday: true, status: .recorded)
+    SwimCalendarDayCell(day: 5, isToday: true, isSelected: true, status: .recorded)
 }

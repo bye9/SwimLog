@@ -42,22 +42,41 @@ class SwimCalendarViewModel: ObservableObject {
         
         var days = [DayModel]()
         
-        for _ in 0..<startOffset {
-            days.append(DayModel(day: nil, isToday: false, hasRecord: false))
+        for i in 0..<startOffset {
+            days.append(DayModel(
+                id: "empty-\(i)",
+                day: nil,
+                isToday: false,
+                isSelected: false,
+                hasRecord: false)
+            )
         }
         
         let isCurrentMonth = isShowingCurrentMonth()
         
         for day in 1...numberOfDays {
-            let hasRecord = allRecords.contains { record in
-                calendar.isDate(record.date, inSameDayAs: calendar.date(byAdding: .day, value: (day - 1), to: selectedMonth.startOfMonth(using: calendar))!)
-            }
-            days.append(DayModel(day: day, isToday: (day == todayComponents.day && isCurrentMonth), hasRecord: hasRecord))
+            // 해당 루프의 실제 Date 객체 생성
+            guard let currentDate = calendar.date(byAdding: .day, value: (day - 1), to: selectedMonth.startOfMonth(using: calendar)) else { continue }
             
-//            let isToday = (day == todayComponents.day && isCurrentMonth)
-//            // ✅ 지금은 테스트를 위해 5의 배수 날짜에만 기록이 있다고 가정해볼게요.
-//            let dummyRecord = day % 5 == 0
-//            days.append(DayModel(day: day, isToday: isToday, hasRecord: dummyRecord))
+            // 기록 여부 확인
+            let hasRecord = allRecords.contains { record in
+                calendar.isDate(record.date, inSameDayAs: currentDate)
+            }
+            // 오늘 여부 확인
+            let isToday = (day == todayComponents.day && isCurrentMonth)
+            // 선택 여부 확인
+            var isSelected = false
+            if let selected = selectedDate {
+                isSelected = calendar.isDate(selected, inSameDayAs: currentDate)
+            }
+            
+            days.append(DayModel(
+                id: currentDate.formatted(.dateTime.year().month().day()),
+                day: day,
+                isToday: isToday,
+                isSelected: isSelected,
+                hasRecord: hasRecord
+            ))
         }
         
         return days
@@ -94,9 +113,10 @@ class SwimCalendarViewModel: ObservableObject {
 
 extension SwimCalendarViewModel {
     struct DayModel: Identifiable {
-        let id = UUID()
+        let id: String
         let day: Int?
         let isToday: Bool
+        let isSelected: Bool
         let hasRecord: Bool
         
         // 뷰모델에서 뷰의 상태를 결정해서 넘겨준다.
