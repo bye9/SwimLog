@@ -29,7 +29,7 @@ struct SwimCalendarDayCell: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 12)
                     // 선택되었을 때만 파란색 테두리, 두께는 약간 두껍게(3)
-                        .stroke(isSelected ? Color.blue : Color.clear, lineWidth: 2)
+                        .stroke(isSelected ? Color.cyan.opacity(0.3) : Color.clear)
                 )
             
             // 오늘 표시
@@ -52,16 +52,34 @@ struct SwimCalendarDayCell: View {
     }
     
     private var backgroundColor: Color {
-        switch status {
-        case .none: return Color.gray.opacity(0.05)
-        case .recorded: return .cyan
+        switch (status, isSelected) {
+        case (_, true):
+            // 1. 어떤 상태든 '선택'이 최우선이라면
+            return Color.cyan.opacity(0.3)
+            
+        case (.recorded, false):
+            // 2. 기록은 있지만 선택되지 않은 상태
+            return .cyan
+            
+        case (.none, false):
+            // 3. 기록도 없고 선택도 안 된 기본 상태
+            return Color.gray.opacity(0.05)
         }
     }
     
     private var textColor: Color {
-        switch status {
-        case .none: return .gray
-        case .recorded: return .white
+        switch (status, isSelected) {
+        case (_, true):
+            // 배경이 연한 하늘색(opacity 0.3)이므로 글씨는 진한 cyan
+            return .cyan
+            
+        case (.recorded, false):
+            // 배경이 진한 cyan이므로 글씨는 하얀색
+            return .white
+            
+        case (.none, false):
+            // 기본 상태
+            return .gray
         }
     }
 }
