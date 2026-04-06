@@ -93,18 +93,25 @@ struct SwimRecordDetailSheet: View {
 
 // 빈 상태 뷰
 fileprivate struct EmptyStateDetailView: View {
+    let messages = [
+        "오늘은 물 밖에서 휴식 중인가요? 🌊",
+        "아직 기록이 없어요. 물속으로 뛰어들어 볼까요? 🏊‍♂️",
+        "물개도 가끔은 쉬어야죠! 오늘은 충전의 날! 🦭"
+    ]
+    
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 12) {
             Image(systemName: "figure.pool.swim")
                 .font(.system(size: 70))
                 .foregroundStyle(.quaternary)
                 .padding(.top, 140)
-            Text("No swim records for this day.")
+            
+            Text(messages.randomElement() ?? "기록이 없습니다.")
                 .font(.subheadline)
-                .foregroundColor(.secondary)
-            Spacer(minLength: 0)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top) // 전체를 상단 정렬로 고정
+        .padding()
     }
 }
 
