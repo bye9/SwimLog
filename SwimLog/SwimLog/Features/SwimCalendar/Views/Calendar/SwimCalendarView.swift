@@ -50,6 +50,30 @@ struct SwimCalendarView: View {
                             SwimRecordDetailSheet(date: swimCalendarViewModel.selectedDate, allRecords: poolTrackerViewModel.records)
                         }
                     
+                    HStack(spacing: 24) {
+                        HStack(alignment: .center, spacing: 8) {
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(Color.cyan)
+                                .frame(width: 18, height: 18)
+                            
+                            Text("수영 완료🏊")
+                                .font(.system(size: 12, weight: .bold, design: .rounded))
+                                .foregroundStyle(.secondary)
+                        }
+                        
+                        HStack(alignment: .center, spacing: 5) {
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(Color.gray.opacity(0.1)) 
+                                .frame(width: 18, height: 18)
+                            
+                            Text("놓쳤다😩")
+                                .font(.system(size: 12, weight: .bold, design: .rounded))
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    
+                    
+                    
                     // 통계박스
                     HStack(spacing: 16) {
                         let monthRecords = swimCalendarViewModel.currentMonthRecords(allRecords: poolTrackerViewModel.records)

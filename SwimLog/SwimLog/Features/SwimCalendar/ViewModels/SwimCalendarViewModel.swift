@@ -17,9 +17,6 @@ class SwimCalendarViewModel: ObservableObject {
     
     let todayComponents = Calendar.current.dateComponents([.year, .month, .day], from: Date())
     
-    // 이 뷰모델이 나중에 HealthKit 데이터를 가져와서
-    // CalendarGrid에 전달하는 역할을 하게 됩니다.
-    
     // 이번 달에 해당하는 기록들만 필터링
     func currentMonthRecords(allRecords: [SwimRecord]) -> [SwimRecord] {
         allRecords.filter { record in
