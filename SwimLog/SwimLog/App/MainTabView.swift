@@ -15,19 +15,19 @@ struct MainTabView: View {
         TabView(selection: $selectedTab) {
             PoolTrackerView()
                 .tabItem {
-                    Label("Ocean", systemImage: "water.waves")
+                    Label("홈", systemImage: "water.waves")
                 }
                 .tag(0)
             
             SwimCalendarView()
                 .tabItem {
-                    Label("Log", systemImage: "doc.text.magnifyingglass")
+                    Label("기록", systemImage: "doc.text.magnifyingglass")
                 }
                 .tag(1)
             
             Text("Settings View") // 나중에 SettingsView()로 교체
                 .tabItem {
-                    Label("Lab", systemImage: "flask")
+                    Label("설정", systemImage: "flask")
                 }
                 .tag(2)
         }
@@ -37,5 +37,8 @@ struct MainTabView: View {
 }
 
 #Preview {
+//    MainTabView()
+    @StateObject var poolTrackerViewModel = PoolTrackerViewModel()
     MainTabView()
+            .environmentObject(poolTrackerViewModel) // 프리뷰용 주입
 }
