@@ -27,12 +27,12 @@ struct SwimSummaryCard: View {
                     
                     if !unit.isEmpty {
                         Text(unit)
-                            .font(.caption)
-                            .foregroundStyle(.gray)
+                            .font(.system(size: 12, weight: .bold, design: .rounded))
+                            .foregroundStyle(.secondary)
                     }
                 }
                 Text(title)
-                    .font(.system(size: 10, weight: .bold))
+                    .font(.system(size: 16, weight: .bold, design: .rounded))
                     .foregroundStyle(.gray.opacity(0.8))
             }
         }
@@ -46,7 +46,7 @@ struct SwimSummaryCard: View {
 
 #Preview {
     SwimSummaryCard(icon: "figure.pool.swim",
-                title: "TOTAL SWIMS",
+                title: "총 수영거리",
                 value: "12",
                 unit: "km",
                 iconColor: .cyan)

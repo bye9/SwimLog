@@ -57,6 +57,7 @@ struct SwimCalendarGridView: View {
         .background(Color.white)
         .cornerRadius(24)
         .shadow(color: Color.black.opacity(0.03), radius: 10, x: 0, y: 5)
+        .animation(.spring(duration: 0.35), value: viewModel.selectedMonth)
         
     }
 }

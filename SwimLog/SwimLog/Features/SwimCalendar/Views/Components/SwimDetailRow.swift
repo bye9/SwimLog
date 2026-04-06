@@ -26,11 +26,11 @@ struct SwimDetailRow: View {
             
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
-                    .font(.callout)
-                    .fontWeight(.bold)
+                    .font(.system(size: 16, weight: .bold, design: .rounded))
+                    .foregroundStyle(.primary)
                 Text(subTitle)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundStyle(.secondary)
             }
             
             Spacer()
@@ -39,8 +39,7 @@ struct SwimDetailRow: View {
                 Text(value)
                     .font(.system(size: 16, weight: .bold, design: .rounded))
                 Text(unit)
-                    .font(.caption)
-                    .fontWeight(.bold)
+                    .font(.system(size: 12, weight: .bold, design: .rounded))
                     .foregroundColor(.secondary)
             }
         }

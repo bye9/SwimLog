@@ -37,16 +37,12 @@ struct SwimCalendarView: View {
                             .onEnded { value in
                                 // 1. 왼쪽으로 밀면 다음 달
                                 if value.translation.width < -50 {
-                                    withAnimation {
-                                        swimCalendarViewModel.moveToNextMonth()
-                                    }
+                                    swimCalendarViewModel.moveToNextMonth()
                                     
                                 }
                                 // 2. 오른쪽으로 밀면 이전 달
                                 else if value.translation.width > 50 {
-                                    withAnimation {
                                         swimCalendarViewModel.moveToPreviousMonth()
-                                    }
                                 }
                             }
                         )
