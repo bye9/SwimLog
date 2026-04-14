@@ -18,6 +18,13 @@ class PoolTrackerViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private let healthKitManager = HealthKitManager()
     
+    // *월 목표
+    var currentMonthString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "M월"
+        return formatter.string(from: Date())
+    }
+    
     // 목표 진행률 계산
     var progress: Double {
         monthlyGoalDistance > 0 ? min(currentDistanceInKm / monthlyGoalDistance, 1.0) : 0

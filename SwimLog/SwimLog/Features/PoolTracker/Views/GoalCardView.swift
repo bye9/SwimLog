@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GoalCardView: View {
+    let title: String
     let currentDistanceInKm: Double
     let monthlyGoalDistance: Double
     var progress: Double
@@ -18,7 +19,7 @@ struct GoalCardView: View {
             HStack(alignment: .top) {
                 // 텍스트 정보
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("2월 목표")
+                    Text(title)
                         .font(.system(size: 20, weight: .bold))
                         .foregroundStyle(.secondary)
                     
@@ -101,7 +102,9 @@ struct GoalCardView: View {
         let viewModel = PoolTrackerViewModel()
         
         Color.blue.opacity(0.1).ignoresSafeArea()
-        GoalCardView(currentDistanceInKm: viewModel.currentDistanceInKm, monthlyGoalDistance: viewModel.monthlyGoalDistance, progress: viewModel.progress)
-            .padding()
+        GoalCardView(title: "\(viewModel.currentMonthString) 목표",
+                     currentDistanceInKm: viewModel.currentDistanceInKm, monthlyGoalDistance: viewModel.monthlyGoalDistance, progress: viewModel.progress)
+        .padding()
     }
 }
+
