@@ -14,8 +14,6 @@
 		D15B145B2F227BD60031ADF7 /* SwimCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B144E2F227BD60031ADF7 /* SwimCalendarView.swift */; };
 		D15B145C2F227BD60031ADF7 /* PoolTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14502F227BD60031ADF7 /* PoolTrackerView.swift */; };
 		D15B145D2F227BD60031ADF7 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14532F227BD60031ADF7 /* MainTabView.swift */; };
-		D15B145E2F227BD60031ADF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14572F227BD60031ADF7 /* ContentView.swift */; };
-		D15B145F2F227BD60031ADF7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14582F227BD60031ADF7 /* Item.swift */; };
 		D15B14602F227BD60031ADF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D15B14562F227BD60031ADF7 /* Assets.xcassets */; };
 		D15B147A2F2A56C80031ADF7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B14792F2A56B90031ADF7 /* SettingsView.swift */; };
 		D15B147C2F2A59BF0031ADF7 /* PoolLaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B147B2F2A59B40031ADF7 /* PoolLaneView.swift */; };
@@ -60,8 +58,6 @@
 		D15B14502F227BD60031ADF7 /* PoolTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolTrackerView.swift; sourceTree = "<group>"; };
 		D15B14532F227BD60031ADF7 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		D15B14562F227BD60031ADF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D15B14572F227BD60031ADF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D15B14582F227BD60031ADF7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		D15B14792F2A56B90031ADF7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D15B147B2F2A59B40031ADF7 /* PoolLaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolLaneView.swift; sourceTree = "<group>"; };
 		D15B147D2F2A59C20031ADF7 /* GoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
@@ -150,8 +146,6 @@
 				D15B146D2F2A54440031ADF7 /* Features */,
 				D15B146E2F2A54D70031ADF7 /* Core */,
 				D15B14562F227BD60031ADF7 /* Assets.xcassets */,
-				D15B14572F227BD60031ADF7 /* ContentView.swift */,
-				D15B14582F227BD60031ADF7 /* Item.swift */,
 			);
 			path = SwimLog;
 			sourceTree = "<group>";
@@ -465,9 +459,7 @@
 				D15B145C2F227BD60031ADF7 /* PoolTrackerView.swift in Sources */,
 				D15B145D2F227BD60031ADF7 /* MainTabView.swift in Sources */,
 				D1A456B72F5AE82900E8EE90 /* Date+Extension.swift in Sources */,
-				D15B145E2F227BD60031ADF7 /* ContentView.swift in Sources */,
 				D1A457762F696B1700E8EE90 /* SwimDetailCard.swift in Sources */,
-				D15B145F2F227BD60031ADF7 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

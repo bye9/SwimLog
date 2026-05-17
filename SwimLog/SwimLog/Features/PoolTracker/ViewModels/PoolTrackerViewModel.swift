@@ -88,7 +88,7 @@ class PoolTrackerViewModel: ObservableObject {
                     }
                     
                     return SwimRecord(
-                        id: UUID(),
+                        healthKitUUID: UUID(),
                         date: startTime,
                         endDate: endTime,
                         distance: distanceInMeters,

@@ -6,20 +6,35 @@
 //
 
 import Foundation
+import SwiftData
+import HealthKit
 
-struct SwimRecord: Identifiable, Hashable {
-    let id: UUID
-    let date: Date
-    let endDate: Date
-    let distance: Double
-    let duration: TimeInterval
-    let isAppleWatchData: Bool
-    let calories: Double
-    let averageHeartRate: Double
-    let averagePace: Double
+@Model
+final class SwimRecord {
+    // HealthKit workout의 UUID — 중복 방지 키
+    @Attribute(.unique) var healthKitUUID: UUID
     
-    init(id: UUID, date: Date, endDate: Date, distance: Double, duration: TimeInterval, isAppleWatchData: Bool, calories: Double, averageHeartRate: Double, averagePace: Double) {
-        self.id = id
+    var date: Date
+    var endDate: Date
+    var distance: Double          // meter
+    var duration: TimeInterval
+    var isAppleWatchData: Bool
+    var calories: Double
+    var averageHeartRate: Double
+    var averagePace: Double        // m/s
+    
+    init(
+        healthKitUUID: UUID,
+        date: Date,
+        endDate: Date,
+        distance: Double,
+        duration: TimeInterval,
+        isAppleWatchData: Bool,
+        calories: Double,
+        averageHeartRate: Double,
+        averagePace: Double
+    ) {
+        self.healthKitUUID = healthKitUUID
         self.date = date
         self.endDate = endDate
         self.distance = distance

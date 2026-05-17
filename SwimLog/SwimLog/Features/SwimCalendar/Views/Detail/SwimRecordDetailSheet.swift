@@ -116,7 +116,7 @@ fileprivate struct EmptyStateDetailView: View {
 }
 
 #Preview {
-    SwimRecordDetailSheet(date: Date(), allRecords: [SwimRecord(id: UUID(), date: Date(), endDate: Date(), distance: 820, duration: 100, isAppleWatchData: true, calories: 240, averageHeartRate: 132.2, averagePace: 0.83)])
+    SwimRecordDetailSheet(date: Date(), allRecords: [SwimRecord(healthKitUUID: UUID(), date: Date(), endDate: Date(), distance: 820, duration: 100, isAppleWatchData: true, calories: 240, averageHeartRate: 132.2, averagePace: 0.83)])
     
 //    SwimRecordDetailSheet(date: Date(), allRecords: [])
 }

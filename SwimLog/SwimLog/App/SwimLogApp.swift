@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-//import SwiftData
+import SwiftData
 
 @main
 struct SwimLogApp: App {
@@ -32,6 +32,6 @@ struct SwimLogApp: App {
                 .environmentObject(poolTrackerViewModel)
                 .preferredColorScheme(.light)
         }
-//        .modelContainer(sharedModelContainer)
+        .modelContainer(for: SwimRecord.self)
     }
 }
