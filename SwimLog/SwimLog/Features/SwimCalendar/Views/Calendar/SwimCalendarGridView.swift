@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 struct SwimCalendarGridView: View {
-    @ObservedObject var viewModel: SwimCalendarViewModel
+    let viewModel: SwimCalendarViewModel
     let allRecords: [SwimRecord]
     
     let columns = Array(repeating: GridItem(.flexible()), count: 7)

@@ -10,26 +10,13 @@ import SwiftData
 
 @main
 struct SwimLogApp: App {
-//    var sharedModelContainer: ModelContainer = {
-//        let schema = Schema([
-//            Item.self,
-//        ])
-//        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-//
-//        do {
-//            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-//        } catch {
-//            fatalError("Could not create ModelContainer: \(error)")
-//        }
-//    }()
+    @State private var poolTrackerViewModel = PoolTrackerViewModel()
     
-    @StateObject var poolTrackerViewModel = PoolTrackerViewModel()
-
     var body: some Scene {
         WindowGroup {
             MainTabView()
                 // 하위의 모든 뷰가 이 객체를 공유합니다.
-                .environmentObject(poolTrackerViewModel)
+                .environment(poolTrackerViewModel)
                 .preferredColorScheme(.light)
         }
         .modelContainer(for: SwimRecord.self)

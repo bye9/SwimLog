@@ -6,102 +6,129 @@
 //
 
 import Foundation
-import Combine
+import SwiftUI
+import SwiftData
 import HealthKit
 
-class PoolTrackerViewModel: ObservableObject {
-    // 거리 데이터
-    @Published var records: [SwimRecord] = []
-    @Published var monthlyGoalDistance = 200.0
-    @Published var currentDistance = 0.0
+@Observable // macro
+@MainActor  // 메인스레드 보장
+final class PoolTrackerViewModel {
+    // MARK: - State
+    // @Published 없어도 자동 추적
     
-    private var cancellables = Set<AnyCancellable>()
+    /// 월 목표 거리 (km). 추후 SettingsView 또는 AppStorage와 연동 예정.
+    var monthlyGoalDistance: Double = 200.0
+    
+    /// HealthKit 동기화 진행 상태. UI에서 로딩 인디케이터 표시용.
+    var isSyncing: Bool = false
+    
+    /// HealthKit 동기화 에러. UI에서 알림 표시용.
+    var syncError: Error?
+    
+    // MARK: - Dependencies
     private let healthKitManager = HealthKitManager()
     
-    // *월 목표
+    // MARK: - Derived State (records를 입력으로 받아 계산)
+    
+    /// 현재 월 표시용 문자열 (예: "5월")
     var currentMonthString: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "M월"
         return formatter.string(from: Date())
     }
     
-    // 목표 진행률 계산
-    var progress: Double {
-        monthlyGoalDistance > 0 ? min(currentDistanceInKm / monthlyGoalDistance, 1.0) : 0
+    /// 이번 달 기록만 필터링
+    /// records 데이터 소유는 SwiftData로 위임
+    /// 호출하는 뷰가 @Query로 records를 가져와서 ViewModel에 넘겨주는 방식
+    func currentMonthRecords(from records: [SwimRecord]) -> [SwimRecord] {
+        let now = Date()
+        return records.filter {
+            Calendar.current.isDate($0.date, equalTo: now, toGranularity: .month)
+        }
     }
     
-    // km 변환 프로퍼티
-    var currentDistanceInKm: Double {
-        return currentDistance / 1000.0
+    /// 이번 달 총 수영 거리 (meter)
+    func currentDistance(from records: [SwimRecord]) -> Double {
+        currentMonthRecords(from: records)
+            .reduce(0) { $0 + $1.distance }
     }
     
-    init() {
-        // Combine: records 배열이 바뀔 때마다 거리를 합산해서 currentDistance를 자동 업데이트합니다.
-        $records
-            .map { records in
-                // 전체 합계가 아니라 '이번 달' 기록만 필터링해서 합산
-                let now = Date()
-                return records
-                    .filter { Calendar.current.isDate($0.date, equalTo: now, toGranularity: .month) }
-                    .reduce(0) { $0 + $1.distance }
-            }
-            .assign(to: &$currentDistance)
+    /// 이번 달 총 수영 거리 (km)
+    func currentDistanceInKm(from records: [SwimRecord]) -> Double {
+        currentDistance(from: records) / 1000.0
     }
     
-    @MainActor
-    func syncWithHealthKit() async {
+    /// 월 목표 달성률 (0.0 ~ 1.0)
+    func progress(from records: [SwimRecord]) -> Double {
+        guard monthlyGoalDistance > 0 else { return 0 }
+        return min(currentDistanceInKm(from: records) / monthlyGoalDistance, 1.0)
+    }
+    
+    
+    // MARK: - HealthKit Sync
+      
+    /// HealthKit에서 수영 기록을 가져와 SwiftData에 upsert.
+    /// @Attribute(.unique) healthKitUUID 덕분에 중복 삽입 시 자동 update.
+    func syncWithHealthKit(context: ModelContext) async {
+        isSyncing = true
+        syncError = nil
+        defer { isSyncing = false }
+        
         do {
-            // 권한 요청
+            // 1. 권한 요청
             let isAuthorized = try await healthKitManager.requestAuthorization()
+            guard isAuthorized else { return }
             
-            if isAuthorized {
-                // 1년 치 데이터 가져오기
-                let yearAgo = Calendar.current.date(byAdding: .month, value: -12, to: Date()) ?? Date()
-                let workouts = try await healthKitManager.fetchSwimmingSessions(from: yearAgo)
-                let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)!
-                
-                // HKWorkout 객체를 우리 앱의 SwimRecord 모델로 매핑
-                self.records = workouts.map { workout in
-                    // 기본 데이터 추출
-                    let distanceInMeters = workout.totalDistance?.doubleValue(for: .meter()) ?? 0
-                    let calories = workout.totalEnergyBurned?.doubleValue(for: .kilocalorie()) ?? 0
-                    let startTime = workout.startDate
-                    let endTime = workout.endDate
-                    
-                    // 평균 페이스(속력) 추출
-                    // 애플워치가 계산한 공식 평균 속력이 있다면 가져오고, 없으면 직접 계산
-                    let averagePace: Double
-                    if let speedQuantity = workout.metadata?[HKMetadataKeyAverageSpeed] as? HKQuantity {
-                        averagePace = speedQuantity.doubleValue(for: HKUnit(from: "m/s"))
-                    } else {
-                        // 속력 = 거리 / 시간
-                        averagePace = workout.duration > 0 ? (distanceInMeters / workout.duration) : 0
-                    }
-                    
-                    // 평균 심박수 추출
-                    var averageHeartRate: Double = 0
-                    
-                    // workout 내부에 저장된 심박수 통계 확인
-                    if let statistics = workout.statistics(for: heartRateType),
-                        let averageQuantity = statistics.averageQuantity() {
-                            averageHeartRate = averageQuantity.doubleValue(for: HKUnit.count().unitDivided(by: .minute()))
-                    }
-                    
-                    return SwimRecord(
-                        healthKitUUID: UUID(),
-                        date: startTime,
-                        endDate: endTime,
-                        distance: distanceInMeters,
-                        duration: workout.duration,
-                        isAppleWatchData: true,
-                        calories: calories,
-                        averageHeartRate: averageHeartRate,
-                        averagePace: averagePace
-                    )
-                }
+            // 2. HealthKit에서 최근 1년치 워크아웃 fetch
+            let yearAgo = Calendar.current.date(byAdding: .month, value: -12, to: Date()) ?? Date()
+            let workouts = try await healthKitManager.fetchSwimmingSessions(from: yearAgo)
+            
+            // 3. 각 워크아웃을 SwimRecord로 변환해서 ModelContext에 upsert
+            let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)!
+            
+            for workout in workouts {
+                let record = makeRecord(from: workout, heartRateType: heartRateType)
+                context.insert(record)
             }
+            
+            try context.save()
         } catch {
+            syncError = error
             print("데이터 동기화 실패: \(error.localizedDescription)")
         }
     }
+    
+    /// HKWorkout → SwimRecord 변환 (순수 함수)
+    private func makeRecord(from workout: HKWorkout, heartRateType: HKQuantityType) -> SwimRecord {
+        let distanceInMeters = workout.totalDistance?.doubleValue(for: .meter()) ?? 0
+        let calories = workout.totalEnergyBurned?.doubleValue(for: .kilocalorie()) ?? 0
+        
+        // 평균 페이스: workout metadata에 있으면 사용, 없으면 거리/시간으로 계산
+        let averagePace: Double
+        if let speedQuantity = workout.metadata?[HKMetadataKeyAverageSpeed] as? HKQuantity {
+            averagePace = speedQuantity.doubleValue(for: HKUnit(from: "m/s"))
+        } else {
+            averagePace = workout.duration > 0 ? (distanceInMeters / workout.duration) : 0
+        }
+        
+        // 평균 심박수: workout 내부 통계에서 추출
+        var averageHeartRate: Double = 0
+        if let statistics = workout.statistics(for: heartRateType),
+           let averageQuantity = statistics.averageQuantity() {
+            averageHeartRate = averageQuantity.doubleValue(for: HKUnit.count().unitDivided(by: .minute()))
+        }
+        
+        return SwimRecord(
+            healthKitUUID: workout.uuid,
+            date: workout.startDate,
+            endDate: workout.endDate,
+            distance: distanceInMeters,
+            duration: workout.duration,
+            isAppleWatchData: true,
+            calories: calories,
+            averageHeartRate: averageHeartRate,
+            averagePace: averagePace
+        )
+    }
+    
 }

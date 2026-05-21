@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SwimCalendarView: View {
-    @EnvironmentObject var poolTrackerViewModel: PoolTrackerViewModel
-    @StateObject private var swimCalendarViewModel = SwimCalendarViewModel()
+    @Query(sort: \SwimRecord.date, order: .reverse) private var records: [SwimRecord]
+    @State private var swimCalendarViewModel = SwimCalendarViewModel()
     
     var body: some View {
+        @Bindable var bindableViewModel = swimCalendarViewModel
+        
         NavigationStack {
             ScrollView {
                 VStack(spacing: 20) {
@@ -32,7 +35,7 @@ struct SwimCalendarView: View {
                     }
                     
                     // 캘린더
-                    SwimCalendarGridView(viewModel: swimCalendarViewModel, allRecords: poolTrackerViewModel.records)
+                    SwimCalendarGridView(viewModel: swimCalendarViewModel, allRecords: records)
                         .gesture(DragGesture(minimumDistance: 30)
                             .onEnded { value in
                                 // 1. 왼쪽으로 밀면 다음 달
@@ -46,8 +49,8 @@ struct SwimCalendarView: View {
                                 }
                             }
                         )
-                        .sheet(isPresented: $swimCalendarViewModel.isShowingDetail) {
-                            SwimRecordDetailSheet(date: swimCalendarViewModel.selectedDate, allRecords: poolTrackerViewModel.records)
+                        .sheet(isPresented: $bindableViewModel.isShowingDetail) {
+                            SwimRecordDetailSheet(date: swimCalendarViewModel.selectedDate, allRecords: records)
                         }
                     
                     HStack(spacing: 24) {
@@ -76,7 +79,7 @@ struct SwimCalendarView: View {
                     
                     // 통계박스
                     HStack(spacing: 16) {
-                        let monthRecords = swimCalendarViewModel.currentMonthRecords(allRecords: poolTrackerViewModel.records)
+                        let monthRecords = swimCalendarViewModel.currentMonthRecords(allRecords: records)
                         
                         SwimSummaryCard(
                             icon: "figure.pool.swim",
@@ -89,7 +92,7 @@ struct SwimCalendarView: View {
                         SwimSummaryCard(
                             icon: "location.fill",
                             title: "총 수영거리",
-                            value: String(format: "%.1f", swimCalendarViewModel.totalDistance(allRecords: poolTrackerViewModel.records)),
+                            value: String(format: "%.1f", swimCalendarViewModel.totalDistance(allRecords: records)),
                             unit: "km",
                             iconColor: .cyan
                         )
@@ -106,6 +109,5 @@ struct SwimCalendarView: View {
 
 #Preview {
     SwimCalendarView()
-        .environmentObject(PoolTrackerViewModel())
-    
+        .modelContainer(for: SwimRecord.self, inMemory: true)
 }

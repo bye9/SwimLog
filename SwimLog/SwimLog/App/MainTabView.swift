@@ -37,8 +37,7 @@ struct MainTabView: View {
 }
 
 #Preview {
-//    MainTabView()
-    @StateObject var poolTrackerViewModel = PoolTrackerViewModel()
     MainTabView()
-            .environmentObject(poolTrackerViewModel) // 프리뷰용 주입
+        .environment(PoolTrackerViewModel())
+        .modelContainer(for: SwimRecord.self, inMemory: true)
 }
