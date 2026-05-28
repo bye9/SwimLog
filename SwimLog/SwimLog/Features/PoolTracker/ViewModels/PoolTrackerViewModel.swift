@@ -76,8 +76,7 @@ final class PoolTrackerViewModel {
         
         do {
             // 1. 권한 요청
-            let isAuthorized = try await healthKitManager.requestAuthorization()
-            guard isAuthorized else { return }
+            try await healthKitManager.requestAuthorization()
             
             // 2. HealthKit에서 최근 1년치 워크아웃 fetch
             let yearAgo = Calendar.current.date(byAdding: .month, value: -12, to: Date()) ?? Date()
