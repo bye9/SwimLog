@@ -100,26 +100,15 @@ struct GoalCardView: View {
 #Preview {
     ZStack {
         let viewModel = PoolTrackerViewModel()
-        let sampleRecords: [SwimRecord] = [
-            SwimRecord(
-                healthKitUUID: UUID(),
-                date: Date(),
-                endDate: Date().addingTimeInterval(3600),
-                distance: 1500,
-                duration: 3600,
-                isAppleWatchData: true,
-                calories: 320,
-                averageHeartRate: 135,
-                averagePace: 1.2
-            )
-        ]
+        let sampleRecords: [SwimRecord] = []
+        let monthlyGoalDistance: Double = 200.0
         
         Color.blue.opacity(0.1).ignoresSafeArea()
         GoalCardView(
             title: "\(viewModel.currentMonthString) 목표",
             currentDistanceInKm: viewModel.currentDistanceInKm(from: sampleRecords),
-            monthlyGoalDistance: viewModel.monthlyGoalDistance,
-            progress: viewModel.progress(from: sampleRecords)
+            monthlyGoalDistance: monthlyGoalDistance,
+            progress: viewModel.progress(from: sampleRecords, monthlyGoalDistance: monthlyGoalDistance)
         )
         .padding()
     }

@@ -26,6 +26,10 @@
 		D1A457732F6826B000E8EE90 /* SwimRecordDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A457722F6826AD00E8EE90 /* SwimRecordDetailSheet.swift */; };
 		D1A457762F696B1700E8EE90 /* SwimDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A457752F696B1200E8EE90 /* SwimDetailCard.swift */; };
 		D1A457782F69771E00E8EE90 /* SwimDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A457772F69771E00E8EE90 /* SwimDetailRow.swift */; };
+		D1E809CC2FC8884B00C9D5AA /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E809CB2FC8884300C9D5AA /* OnboardingContainerView.swift */; };
+		D1E809CE2FC8890C00C9D5AA /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E809CD2FC8890700C9D5AA /* WelcomeView.swift */; };
+		D1E809D02FC8891200C9D5AA /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E809CF2FC8890F00C9D5AA /* PermissionView.swift */; };
+		D1E809D22FC8891A00C9D5AA /* GoalSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E809D12FC8891600C9D5AA /* GoalSettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,10 @@
 		D1A457722F6826AD00E8EE90 /* SwimRecordDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimRecordDetailSheet.swift; sourceTree = "<group>"; };
 		D1A457752F696B1200E8EE90 /* SwimDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimDetailCard.swift; sourceTree = "<group>"; };
 		D1A457772F69771E00E8EE90 /* SwimDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimDetailRow.swift; sourceTree = "<group>"; };
+		D1E809CB2FC8884300C9D5AA /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
+		D1E809CD2FC8890700C9D5AA /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		D1E809CF2FC8890F00C9D5AA /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
+		D1E809D12FC8891600C9D5AA /* GoalSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -153,6 +161,7 @@
 		D15B146D2F2A54440031ADF7 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				D1E809C92FC8883400C9D5AA /* Onboarding */,
 				D15B146F2F2A552D0031ADF7 /* PoolTracker */,
 				D15B14752F2A56420031ADF7 /* SwimCalendar */,
 				D15B14762F2A566F0031ADF7 /* Settings */,
@@ -300,6 +309,25 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		D1E809C92FC8883400C9D5AA /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				D1E809CA2FC8883E00C9D5AA /* Views */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		D1E809CA2FC8883E00C9D5AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1E809CB2FC8884300C9D5AA /* OnboardingContainerView.swift */,
+				D1E809CD2FC8890700C9D5AA /* WelcomeView.swift */,
+				D1E809CF2FC8890F00C9D5AA /* PermissionView.swift */,
+				D1E809D12FC8891600C9D5AA /* GoalSettingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -444,6 +472,7 @@
 			files = (
 				D1A456B42F5AE67700E8EE90 /* SwimCalendarViewModel.swift in Sources */,
 				D107FE4E2F3E267100EC9112 /* SwimRecord.swift in Sources */,
+				D1E809CC2FC8884B00C9D5AA /* OnboardingContainerView.swift in Sources */,
 				D15B147A2F2A56C80031ADF7 /* SettingsView.swift in Sources */,
 				D1A456B92F5AEC9300E8EE90 /* SwimCalendarGridView.swift in Sources */,
 				D1A456BB2F5B022900E8EE90 /* SwimCalendarDayCell.swift in Sources */,
@@ -453,10 +482,13 @@
 				D1A456BD2F642AE700E8EE90 /* SwimSummaryCard.swift in Sources */,
 				D1A457732F6826B000E8EE90 /* SwimRecordDetailSheet.swift in Sources */,
 				D107FE4C2F32311600EC9112 /* PoolTrackerViewModel.swift in Sources */,
+				D1E809D02FC8891200C9D5AA /* PermissionView.swift in Sources */,
 				D15B145B2F227BD60031ADF7 /* SwimCalendarView.swift in Sources */,
 				D15B147E2F2A59CB0031ADF7 /* GoalCardView.swift in Sources */,
 				D1A457782F69771E00E8EE90 /* SwimDetailRow.swift in Sources */,
+				D1E809CE2FC8890C00C9D5AA /* WelcomeView.swift in Sources */,
 				D15B145C2F227BD60031ADF7 /* PoolTrackerView.swift in Sources */,
+				D1E809D22FC8891A00C9D5AA /* GoalSettingView.swift in Sources */,
 				D15B145D2F227BD60031ADF7 /* MainTabView.swift in Sources */,
 				D1A456B72F5AE82900E8EE90 /* Date+Extension.swift in Sources */,
 				D1A457762F696B1700E8EE90 /* SwimDetailCard.swift in Sources */,

@@ -11,15 +11,16 @@ import SwiftData
 struct PoolTrackerView: View {
     @Environment(PoolTrackerViewModel.self) private var viewModel
     @Environment(\.modelContext) private var modelContext
+    //    SwiftData에서 SwimRecord 타입의 모든 인스턴스 자동 조회
+    //    정렬: date 필드 기준 내림차순 (최신 기록 먼저)
+    //    데이터베이스가 변경되면 자동으로 뷰 재렌더링
     @Query(sort: \SwimRecord.date, order: .reverse) private var records: [SwimRecord]
-//    SwiftData에서 SwimRecord 타입의 모든 인스턴스 자동 조회
-//    정렬: date 필드 기준 내림차순 (최신 기록 먼저)
-//    데이터베이스가 변경되면 자동으로 뷰 재렌더링
+    @AppStorage("monthlyGoalDistance") private var monthlyGoalDistance: Double = 200.0
     
     var body: some View {
         ZStack(alignment: .top) {
             // 수영장 배경 및 레인
-            PoolLaneView(progress: viewModel.progress(from: records)).ignoresSafeArea()
+            PoolLaneView(progress: viewModel.progress(from: records, monthlyGoalDistance: monthlyGoalDistance)).ignoresSafeArea()
             
             // 상단 가독성을 위한 부드러운 그라데이션
             LinearGradient(
@@ -36,8 +37,8 @@ struct PoolTrackerView: View {
                     GoalCardView(
                         title: "\(viewModel.currentMonthString) 목표",
                         currentDistanceInKm: viewModel.currentDistanceInKm(from: records),
-                        monthlyGoalDistance: viewModel.monthlyGoalDistance,
-                        progress: viewModel.progress(from: records)
+                        monthlyGoalDistance: monthlyGoalDistance,
+                        progress: viewModel.progress(from: records, monthlyGoalDistance: monthlyGoalDistance)
                     )
                     .padding(.top, 40)
                 }

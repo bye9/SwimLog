@@ -16,9 +16,6 @@ final class PoolTrackerViewModel {
     // MARK: - State
     // @Published 없어도 자동 추적
     
-    /// 월 목표 거리 (km). 추후 SettingsView 또는 AppStorage와 연동 예정.
-    var monthlyGoalDistance: Double = 200.0
-    
     /// HealthKit 동기화 진행 상태. UI에서 로딩 인디케이터 표시용.
     var isSyncing: Bool = false
     
@@ -59,7 +56,7 @@ final class PoolTrackerViewModel {
     }
     
     /// 월 목표 달성률 (0.0 ~ 1.0)
-    func progress(from records: [SwimRecord]) -> Double {
+    func progress(from records: [SwimRecord], monthlyGoalDistance: Double) -> Double {
         guard monthlyGoalDistance > 0 else { return 0 }
         return min(currentDistanceInKm(from: records) / monthlyGoalDistance, 1.0)
     }
