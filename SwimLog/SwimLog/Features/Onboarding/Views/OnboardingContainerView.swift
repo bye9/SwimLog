@@ -16,6 +16,10 @@ struct OnboardingContainerView: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            // 커스텀 페이지 인디케이터
+            PageIndicator(currentPage: currentPage, totalPages: 3)
+                .padding(.bottom, 20)
+            
             TabView(selection: $currentPage) {
                 WelcomeView(onNext: goToNext)
                     .tag(0)
@@ -28,10 +32,6 @@ struct OnboardingContainerView: View {
                 .tag(2)
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
-            
-            // 커스텀 페이지 인디케이터
-            PageIndicator(currentPage: currentPage, totalPages: 3)
-                .padding(.bottom, 32)
         }
         .background(Color(.systemGroupedBackground))
     }
@@ -69,4 +69,5 @@ private struct PageIndicator: View {
 
 #Preview {
     OnboardingContainerView()
+        .environment(PoolTrackerViewModel())
 }

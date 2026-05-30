@@ -63,6 +63,12 @@ final class PoolTrackerViewModel {
     
     
     // MARK: - HealthKit Sync
+    
+    /// 권한 다이얼로그만 띄움 (온보딩에서 사용).
+    /// 이미 응답했으면 즉시 통과. 허용/거부 여부는 알 수 없음.
+    func requestAuthorization() async throws {
+        try await healthKitManager.requestAuthorization()
+    }
       
     /// HealthKit에서 수영 기록을 가져와 SwiftData에 upsert.
     /// @Attribute(.unique) healthKitUUID 덕분에 중복 삽입 시 자동 update.

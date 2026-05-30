@@ -18,20 +18,16 @@ struct WelcomeView: View {
             Image(systemName: "figure.pool.swim")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 140, height: 140)
+                .frame(width: 80, height: 80)
+                .shadow(color: .black.opacity(0.1), radius: 10, y: 4)
                 .foregroundStyle(.cyan)
-                .padding(40)
-                .background(
-                    Circle()
-                        .fill(Color.cyan.opacity(0.1))
-                )
             
             // 텍스트
             VStack(spacing: 12) {
                 Text("SwimLog")
                     .font(.system(size: 36, weight: .bold, design: .rounded))
                 
-                Text("애플워치로 기록한 수영을\n한눈에 모아봐요")
+                Text("애플워치로 기록한 수영을\n한눈에 모아봐요.")
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
