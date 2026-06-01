@@ -21,17 +21,6 @@ struct PoolLaneView: View {
                     laneDivider
                     laneDivider
                 }
-                
-                // 3. 거북이 (진행도에 따라 이동)
-                VStack {
-                    Image(systemName: "tortoise.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 45, height: 45)
-                        .foregroundStyle(.blue.gradient)
-                        .offset(y: -(geo.size.height * 0.7 * CGFloat(progress)) + 100)
-//                    Spacer().frame(height: 120)
-                }
             }
         }
     }

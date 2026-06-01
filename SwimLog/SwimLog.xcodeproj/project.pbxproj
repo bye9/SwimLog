@@ -30,6 +30,7 @@
 		D1E809CE2FC8890C00C9D5AA /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E809CD2FC8890700C9D5AA /* WelcomeView.swift */; };
 		D1E809D02FC8891200C9D5AA /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E809CF2FC8890F00C9D5AA /* PermissionView.swift */; };
 		D1E809D22FC8891A00C9D5AA /* GoalSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E809D12FC8891600C9D5AA /* GoalSettingView.swift */; };
+		D1E809E02FCB430200C9D5AA /* TurtleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E809DF2FCB42FC00C9D5AA /* TurtleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		D1E809CD2FC8890700C9D5AA /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D1E809CF2FC8890F00C9D5AA /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
 		D1E809D12FC8891600C9D5AA /* GoalSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingView.swift; sourceTree = "<group>"; };
+		D1E809DF2FCB42FC00C9D5AA /* TurtleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -208,6 +210,7 @@
 		D15B14722F2A554A0031ADF7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D1E809DF2FCB42FC00C9D5AA /* TurtleView.swift */,
 				D15B14502F227BD60031ADF7 /* PoolTrackerView.swift */,
 				D15B147B2F2A59B40031ADF7 /* PoolLaneView.swift */,
 				D15B147D2F2A59C20031ADF7 /* GoalCardView.swift */,
@@ -483,6 +486,7 @@
 				D1A457732F6826B000E8EE90 /* SwimRecordDetailSheet.swift in Sources */,
 				D107FE4C2F32311600EC9112 /* PoolTrackerViewModel.swift in Sources */,
 				D1E809D02FC8891200C9D5AA /* PermissionView.swift in Sources */,
+				D1E809E02FCB430200C9D5AA /* TurtleView.swift in Sources */,
 				D15B145B2F227BD60031ADF7 /* SwimCalendarView.swift in Sources */,
 				D15B147E2F2A59CB0031ADF7 /* GoalCardView.swift in Sources */,
 				D1A457782F69771E00E8EE90 /* SwimDetailRow.swift in Sources */,

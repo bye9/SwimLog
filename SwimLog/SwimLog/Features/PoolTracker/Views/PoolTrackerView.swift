@@ -22,6 +22,9 @@ struct PoolTrackerView: View {
             // 수영장 배경 및 레인
             PoolLaneView(progress: viewModel.progress(from: records, monthlyGoalDistance: monthlyGoalDistance)).ignoresSafeArea()
             
+            // 거북이 추가
+            TurtleView(progress: viewModel.progress(from: records, monthlyGoalDistance: monthlyGoalDistance))
+            
             // 상단 가독성을 위한 부드러운 그라데이션
             LinearGradient(
                 colors: [Color(.systemGroupedBackground).opacity(0.8), .clear],
