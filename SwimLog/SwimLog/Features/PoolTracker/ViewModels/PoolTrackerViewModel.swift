@@ -85,12 +85,32 @@ final class PoolTrackerViewModel {
             let yearAgo = Calendar.current.date(byAdding: .month, value: -12, to: Date()) ?? Date()
             let workouts = try await healthKitManager.fetchSwimmingSessions(from: yearAgo)
             
-            // 3. 각 워크아웃을 SwimRecord로 변환해서 ModelContext에 upsert
-            let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)!
+            // 3. SwiftData에서 기존 레코드 fetch
+            let descriptor = FetchDescriptor<SwimRecord>()
+            let existingRecords = try context.fetch(descriptor)
             
+            let healthKitUUIDs = Set(workouts.map { $0.uuid })       // HealthKit의 UUID들
+            let existingUUIDs = Set(existingRecords.map { $0.healthKitUUID })  // SwiftData의 UUID들
+            
+            // 4. 추가/업데이트: HealthKit의 모든 워크아웃을 upsert
+            // (@Attribute(.unique) 덕분에 기존 건 자동 update)
+            let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate)!
             for workout in workouts {
                 let record = makeRecord(from: workout, heartRateType: heartRateType)
                 context.insert(record)
+            }
+            
+            // 5. 삭제: SwiftData엔 있지만 HealthKit엔 없는 레코드 제거
+            // [가드] HealthKit이 비어있으면(권한 거부 의심) 삭제 보류
+            if !workouts.isEmpty {
+                let deletedUUIDs = existingUUIDs.subtracting(healthKitUUIDs)
+                let recordsToDelete = existingRecords.filter {
+                    deletedUUIDs.contains($0.healthKitUUID)
+                }
+
+                for record in recordsToDelete {
+                    context.delete(record)
+                }
             }
             
             try context.save()
