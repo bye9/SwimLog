@@ -25,9 +25,9 @@ struct MainTabView: View {
                 }
                 .tag(1)
             
-            Text("Settings View") // 나중에 SettingsView()로 교체
+            SettingsView()
                 .tabItem {
-                    Label("설정", systemImage: "flask")
+                    Label("설정", systemImage: "gearshape.fill")
                 }
                 .tag(2)
         }

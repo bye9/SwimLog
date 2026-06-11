@@ -38,9 +38,11 @@ struct SwimSummaryCard: View {
         }
         .frame(maxWidth: .infinity, minHeight: 120)
         .padding(.vertical, 20)
-        .background(Color.white)
-        .cornerRadius(24)
-        .shadow(color: Color.black.opacity(0.03), radius: 10, x: 0, y: 5)
+        .background(
+            RoundedRectangle(cornerRadius: 24)
+                .fill(Color.white)
+                .shadow(color: .black.opacity(0.03), radius: 10, x: 0, y: 5)
+        )
     }
 }
 

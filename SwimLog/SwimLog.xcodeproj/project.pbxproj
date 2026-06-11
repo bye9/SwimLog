@@ -26,6 +26,7 @@
 		D1A457732F6826B000E8EE90 /* SwimRecordDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A457722F6826AD00E8EE90 /* SwimRecordDetailSheet.swift */; };
 		D1A457762F696B1700E8EE90 /* SwimDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A457752F696B1200E8EE90 /* SwimDetailCard.swift */; };
 		D1A457782F69771E00E8EE90 /* SwimDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A457772F69771E00E8EE90 /* SwimDetailRow.swift */; };
+		D1A471002FD2F29600ED200E /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A470FF2FD2F29500ED200E /* SettingsViewModel.swift */; };
 		D1E809CC2FC8884B00C9D5AA /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E809CB2FC8884300C9D5AA /* OnboardingContainerView.swift */; };
 		D1E809CE2FC8890C00C9D5AA /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E809CD2FC8890700C9D5AA /* WelcomeView.swift */; };
 		D1E809D02FC8891200C9D5AA /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E809CF2FC8890F00C9D5AA /* PermissionView.swift */; };
@@ -74,6 +75,7 @@
 		D1A457722F6826AD00E8EE90 /* SwimRecordDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimRecordDetailSheet.swift; sourceTree = "<group>"; };
 		D1A457752F696B1200E8EE90 /* SwimDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimDetailCard.swift; sourceTree = "<group>"; };
 		D1A457772F69771E00E8EE90 /* SwimDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwimDetailRow.swift; sourceTree = "<group>"; };
+		D1A470FF2FD2F29500ED200E /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		D1E809CB2FC8884300C9D5AA /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
 		D1E809CD2FC8890700C9D5AA /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		D1E809CF2FC8890F00C9D5AA /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		D15B14762F2A566F0031ADF7 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				D1A470FE2FD2F28900ED200E /* ViewModels */,
 				D15B14782F2A56B30031ADF7 /* Views */,
 			);
 			path = Settings;
@@ -310,6 +313,14 @@
 				D1A457722F6826AD00E8EE90 /* SwimRecordDetailSheet.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		D1A470FE2FD2F28900ED200E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D1A470FF2FD2F29500ED200E /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		D1E809C92FC8883400C9D5AA /* Onboarding */ = {
@@ -496,6 +507,7 @@
 				D15B145D2F227BD60031ADF7 /* MainTabView.swift in Sources */,
 				D1A456B72F5AE82900E8EE90 /* Date+Extension.swift in Sources */,
 				D1A457762F696B1700E8EE90 /* SwimDetailCard.swift in Sources */,
+				D1A471002FD2F29600ED200E /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
