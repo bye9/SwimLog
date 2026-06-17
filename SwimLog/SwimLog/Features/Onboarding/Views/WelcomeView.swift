@@ -15,7 +15,7 @@ struct WelcomeView: View {
             Spacer()
             
             // 일러스트
-            Image(systemName: "figure.pool.swim")
+            Image(.turtle)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 80, height: 80)

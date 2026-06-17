@@ -18,14 +18,6 @@ struct GoalSettingView: View {
         VStack(spacing: 32) {
             Spacer()
             
-            // 일러스트
-            Image(systemName: "target")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 80, height: 80)
-                .shadow(color: .black.opacity(0.1), radius: 10, y: 4)
-                .foregroundStyle(.cyan)
-            
             // 설명
             VStack(spacing: 12) {
                 Text("월 목표를 정해볼까요?")
@@ -42,7 +34,7 @@ struct GoalSettingView: View {
             HStack(alignment: .firstTextBaseline, spacing: 4) {
                 Text("\(Int(monthlyGoal))")
                     .font(.system(size: 56, weight: .bold, design: .rounded))
-                    .foregroundStyle(.cyan)
+                    .foregroundStyle(.primary)
                     .contentTransition(.numericText())
                 
                 Text("km")
@@ -53,7 +45,7 @@ struct GoalSettingView: View {
             // 슬라이더
             VStack(spacing: 8) {
                 Slider(value: $monthlyGoal, in: range, step: step)
-                    .tint(.cyan)
+                    .tint(.black)
                 
                 HStack {
                     Text("\(Int(range.lowerBound))km")
